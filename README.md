@@ -11,7 +11,7 @@
 > Hey Guys, This Repository is a collection of projects. You will find more than 100 projects in it, amd they are truly amazing.
 
 # Anime Project's
-
+<br>
 <table align="center">
     <!--project-1 -->
     <tr>
@@ -85,8 +85,14 @@
     </td>
 </table>
 
-# CARS Project's
 
+
+<br>
+<br>
+<br>
+
+# CAR Project's
+<br>
 <table align="center">
     <!--project-1 -->
     <tr>
@@ -149,8 +155,10 @@
 
 <br>
 <br>
+<br>
 
 # Cursor Project's
+<br>
 <table align="center">
     <!--project-1 -->
     <tr>
