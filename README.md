@@ -16,7 +16,7 @@
     <!--project-1 -->
     <tr>
     <td valign="top">
-        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/ANIME/3d-card-hover">
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/KAIZEN-PROJECTS/ANIME/3d-card-hover">
             <p align="center">3d-card-hover</p>
             <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/Anime/01.png"/>
         </a>
