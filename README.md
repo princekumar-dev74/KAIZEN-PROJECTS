@@ -22,7 +22,7 @@
         </a>
     </td>
     <td valign="top">
-        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/ANIME/anime-cards/index.html/">
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/ANIME/anime-cards/index.html">
             <p align="center">anime-cards</p>
             <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/Anime/02.png"/>
         </a>
