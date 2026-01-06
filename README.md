@@ -9,6 +9,8 @@
 </p>
 
 > Hey Guys, This Repository is a collection of projects. You will find more than 100 projects in it, amd they are truly amazing.
+> <br>
+> “If someone is facing a problem downloading a project, they should first copy the project’s permalink and then visit this website and paste it there. That single project will be downloaded automatically.”                   https://download-directory.github.io
 
 # Anime Project's
 <br>
