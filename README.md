@@ -85,3 +85,67 @@
     </td>
 
 
+
+
+
+#CARS Project's
+
+<table align="center">
+    <!--project-1 -->
+    <tr>
+    <td valign="top">
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/CARS/3d-modal">
+            <p align="center">3d-card-hover</p>
+            <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/Cars/01.png"/>
+        </a>
+    </td>
+    <td valign="top">
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/CARS/car-blur">
+            <p align="center">anime-cards</p>
+            <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/Cars/02.png"/>
+        </a>
+    </td>
+    <td valign="top">
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/CARS/car-showcase">
+            <p align="center">card-hover</p>
+            <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/Cars/03.png"/>
+        </a>
+    </td>
+    </tr>
+    <!--project-2 -->
+    <tr>
+    <td valign="top">
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/CARS/drive-mad">
+            <p align="center">cute-scroll</p>
+            <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/Cars/04.png"/>
+        </a>
+    </td>
+    <td valign="top">
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/CARS/helmet">
+            <p align="center">dotpainting</p>
+            <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/Cars/05.png"/>
+        </a>
+    </td>
+    <td valign="top">
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/CARS/lamborghini">
+            <p align="center">goku-hover</p>
+            <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/Cars/06.png"/>
+        </a>
+    </td>
+    </tr>
+    <!--project-3 -->
+    <tr>
+    <td valign="top">
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/CARS/mini-gta">
+            <p align="center">goku-web</p>
+            <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/Cars/07.png"/>
+        </a>
+    </td>
+    <td valign="top">
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/CARS/tesla-scroll">
+            <p align="center">hinata-slider</p>
+            <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/Cars/08.png"/>
+        </a>
+    </td>
+
+
