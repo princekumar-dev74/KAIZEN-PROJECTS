@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Wave controller</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.2/p5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+<style>
+body { margin:0; background:#000; overflow:hidden; font-family:monospace; color:white; }
+.panel { position:fixed; bottom:15px; left:50%; transform:translateX(-50%); background:rgba(20,20,30,0.7); border:1px solid rgba(255,255,255,0.15); border-radius:20px; backdrop-filter:blur(10px); display:flex; align-items:center; gap:10px; padding:12px 20px; z-index:10; box-shadow:0 0 20px rgba(0,255,255,0.2);}
+select,input[type="file"],button { background:transparent; color:white; cursor:pointer; }
+input[type="file"]::-webkit-file-upload-button { display:none; }
+input[type="file"]::file-selector-button { display:none; }
+button { border:1px solid rgba(255,255,255,0.3); border-radius:8px; padding:5px 10px; }
+.fileWrapper { display:flex; align-items:center; gap:5px; }
+.fileWrapper span { font-size:12px; min-width:80px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.fileWrapper button { font-size:12px; padding:2px 5px; border-radius:4px; }
+.colorWrapper { position:fixed; bottom:90px; left:50%; transform:translateX(-50%); display:flex; align-items:center; gap:5px; z-index:10; }
+#preview { position:fixed; bottom:10px; right:10px; width:200px; border-radius:10px; transform:scaleX(-1); border:1px solid rgba(255,255,255,0.3); }
+</style>
+</head>
+<body>
+<video id="preview" autoplay muted playsinline></video>
+
+<!-- Barra colore sopra la panel -->
+<div class="colorWrapper">
+  <input type="range" id="colorSlider" min="0" max="360" value="0" style="width:200px; cursor:pointer;">
+  <button id="rainbowBtn">🌈</button>
+</div>
+
+<div class="panel">
+  <select id="instrument">
+    <option value="nothing">Nothing</option>
+    <option value="xylophone">Xylophone</option>
+    <option value="kick">Kick</option>
+    <option value="metallic">Metallic</option>
+  </select>
+
+  <div class="fileWrapper">
+    <input type="file" id="songFile" accept="audio/*">
+    <span id="songLabel">&nbsp;</span>
+    <button id="removeSong">X</button>
+    <button id="playPauseSong">▶️</button>
+  </div>
+
+  <button id="startBtn" style="background:green;color:white;">Start</button>
+  <button id="touchBtn" style="background:green;color:white;">Touch</button>
+  <button id="fingerBtn">Finger</button>
+</div>
+
+<script>
+let points=[], numPoints=200;
+let gravity=0.03, damping=0.92;
+let fingerX=null, fingerY=null;
+let baseColor;
+let currentInstrument="nothing";
+let useFinger=false;
+let song=null, songLabel;
+let rainbow=false;
+let lineActive=true;
+let isPlaying=false;
+
+let synth, filter, reverb, vol;
+
+// --- Setup ---
+function setup(){
+  createCanvas(windowWidth,windowHeight);
+  colorMode(HSL);
+  baseColor=color(0,100,50);
+  for(let i=0;i<numPoints;i++) points.push({x:(i*width)/numPoints,y:height/2,vy:0});
+
+  createSynth(currentInstrument);
+  songLabel=document.getElementById("songLabel");
+
+  document.getElementById("instrument").oninput = e => {
+    currentInstrument = e.target.value;
+    createSynth(currentInstrument);
+    if(currentInstrument!=="nothing" && song){ song.stop(); song=null; songLabel.innerText=""; isPlaying=false; document.getElementById("playPauseSong").innerText="▶️"; }
+  };
+
+  document.getElementById("colorSlider").oninput = e => baseColor=color(e.target.value,100,50);
+  document.getElementById("rainbowBtn").onclick = () => rainbow=!rainbow;
+
+  // Gestione file canzone
+  document.getElementById("songFile").onchange = e => {
+    let file=e.target.files[0];
+    if(file){
+      songLabel.innerText="Loading...";
+      let url=URL.createObjectURL(file);
+      if(song) song.dispose();
+      song = new Tone.Player(url, ()=>{
+        songLabel.innerText=file.name;
+        isPlaying=false;
+        document.getElementById("playPauseSong").innerText="▶️";
+      }).toDestination();
+    }
+  };
+
+  document.getElementById("removeSong").onclick = ()=>{
+    if(song){ song.stop(); song.dispose(); song=null; }
+    songLabel.innerText="&nbsp;";
+    document.getElementById("songFile").value="";
+    isPlaying=false;
+    document.getElementById("playPauseSong").innerText="▶️";
+  };
+
+  // Play/Pausa toggle
+  document.getElementById("playPauseSong").onclick = async ()=>{
+    if(!song) return;
+    await Tone.start();
+    if(!isPlaying){
+      song.start();
+      document.getElementById("playPauseSong").innerText="⏸️";
+      isPlaying=true;
+    } else {
+      song.stop();
+      document.getElementById("playPauseSong").innerText="▶️";
+      isPlaying=false;
+    }
+  };
+
+  document.getElementById("startBtn").onclick = function(){
+    lineActive=!lineActive;
+    this.style.background = lineActive ? "green" : "red";
+  };
+
+  document.getElementById("touchBtn").onclick = e=>{
+    useFinger=false;
+    e.target.style.background="green";
+    document.getElementById("fingerBtn").style.background="";
+  };
+  document.getElementById("fingerBtn").onclick = e=>{
+    useFinger=true;
+    e.target.style.background="green";
+    document.getElementById("touchBtn").style.background="";
+  };
+
+  initHands();
+}
+
+// --- Create Synth ---
+function createSynth(preset){
+  if(synth) synth.dispose();
+  filter?.dispose();
+  reverb?.dispose();
+  vol?.dispose();
+
+  synth = new Tone.PolySynth(Tone.Synth);
+  filter = new Tone.Filter(800,"lowpass");
+  reverb = new Tone.Reverb({decay:6,wet:0.45});
+  vol = new Tone.Volume(-10);
+
+  switch(preset){
+    case "xylophone": synth.set({oscillator:{type:"triangle"},envelope:{attack:0.01,decay:0.15,sustain:0,release:0.3}}); break;
+    case "kick": synth.set({oscillator:{type:"sine"},envelope:{attack:0.001,decay:0.3,sustain:0,release:0.1}}); break;
+    case "metallic": synth.set({oscillator:{type:"sawtooth"},envelope:{attack:0.01,decay:1.2,sustain:0.1,release:0.5}}); break;
+  }
+
+  if(preset!=="nothing") synth.chain(filter,reverb,vol,Tone.Destination);
+}
+
+// --- Draw ---
+function draw(){
+  background(0,0.25);
+
+  let baseY=height/2;
+  for(let p of points){ let force=(baseY-p.y)*gravity; p.vy+=force; p.vy*=damping; p.y+=p.vy; }
+  for(let i=1;i<points.length-1;i++){ let avg=(points[i-1].y+points[i].y+points[i+1].y)/3; points[i].y=lerp(points[i].y,avg,0.4); }
+
+  if(lineActive){
+    let x = useFinger ? (fingerX!==null ? fingerX : width/2) : mouseX;
+    let y = useFinger ? (fingerY!==null ? fingerY : height/2) : mouseY;
+
+    let idx = int(map(x,0,width,0,points.length-1));
+    let p = points[idx];
+    let offset = (y - p.y) * 0.5;
+    for (let j=-12;j<=12;j++){
+      let id2=idx+j;
+      if(id2>0 && id2<points.length){
+        let influence=exp(-abs(j)*0.25);
+        points[id2].vy += offset*influence*0.25;
+      }
+    }
+
+    if(currentInstrument!=="nothing" && Tone.context.state==="running"){
+      let freq = map(y,height,0,120,1000);
+      synth.triggerAttackRelease(freq,"8n");
+    }
+
+    if(song && isPlaying){
+      song.playbackRate = map(y,0,height,2,0.2);
+    }
+  }
+
+  noFill(); strokeWeight(3); drawingContext.shadowBlur=25;
+  beginShape();
+  for(let i=0;i<points.length;i++){
+    if(rainbow){
+      let h = (i*360/points.length + frameCount)%360;
+      stroke(color(h,100,50));
+      drawingContext.shadowColor = color(h,100,50);
+    } else {
+      stroke(baseColor);
+      drawingContext.shadowColor = baseColor;
+    }
+    curveVertex(points[i].x, points[i].y);
+  }
+  endShape();
+  drawingContext.shadowBlur=0;
+}
+
+// --- MediaPipe Hands ---
+function initHands(){
+  const video=document.getElementById("preview");
+  const hands=new Hands({ locateFile:file=>`https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}` });
+  hands.setOptions({ maxNumHands:1, modelComplexity:1, minDetectionConfidence:0.6, minTrackingConfidence:0.6 });
+  hands.onResults(results=>{
+    if(results.multiHandLandmarks && results.multiHandLandmarks.length>0){
+      let indexTip=results.multiHandLandmarks[0][8];
+      fingerX=width - indexTip.x*width;
+      fingerY=indexTip.y*height;
+    } else { fingerX=null; fingerY=null; }
+  });
+  const camera=new Camera(video,{ onFrame:async()=>{await hands.send({image:video});}, width:640, height:480 });
+  camera.start();
+}
+
+function windowResized(){ resizeCanvas(windowWidth,windowHeight); }
+function mousePressed(){ if(Tone.context.state!=="running") Tone.start(); }
+</script>
+</body>
+</html>

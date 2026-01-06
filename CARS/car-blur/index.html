@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Blur Effect | webkaizen</title>
+  <style>
+    /* Background */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ffffff, #000000);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: white;
+    }
+
+    /* Heading */
+    h1 {
+      margin-bottom: 20px;
+      font-size: 2.2rem;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    }
+
+    /* Image styling */
+    .img {
+      width: 600px;
+      max-width: 90%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      transition: filter 0.5s ease;
+    }
+
+    /* Button design */
+    .buttons {
+      margin-top: 20px;
+      display: flex;
+      gap: 15px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      background: white;
+      color: #000000;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background: #5c5c5e;
+      color: rgb(255, 253, 253);
+    }
+
+            button:hover{
+            box-shadow: 4px 4px 8px #bebebe, -4px -4px 8px #ffffff;
+        }
+        button:active{
+            box-shadow: inset 4px 4px 8px #bebebe, inset -4px 8px #ffffff;
+        }
+  </style>
+</head>
+<body>
+  <h1>✨ Image Blur Demo ✨</h1>
+  <img class="img" id="car" src="image1.avif" alt="Car Image">
+  
+  <div class="buttons">
+    <button onclick="blurImage()">Blur</button>
+    <button onclick="unblurImage()">Unblur</button>
+  </div>
+
+  <script>
+    const car = document.getElementById('car');
+    
+    function blurImage() {
+      car.style.filter = "blur(5px)";
+    }
+
+    function unblurImage() {
+      car.style.filter = "none";
+    }
+  </script>
+</body>
+</html>

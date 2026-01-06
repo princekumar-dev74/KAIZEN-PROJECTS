@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Local Cafe</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="asset/favicon.png">
+
+</head>
+ 
+<body>
+ 
+    <!-- Navigation -->
+ 
+    <nav class="navbar" id="navbar">
+ 
+        <div class="container nav-container">
+ 
+            <div class="logo">
+ 
+                <h1>Thé Local <span>CAFE</span></h1>
+ 
+            </div>
+ 
+            <ul class="nav-menu" id="navMenu">
+ 
+                <li><a href="#home" class="nav-link active">Home</a></li>
+ 
+                <li><a href="#about" class="nav-link">About</a></li>
+ 
+                <li><a href="#menu" class="nav-link">Menu</a></li>
+ 
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
+ 
+                <li><a href="#testimonials" class="nav-link">Reviews</a></li>
+ 
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+ 
+            </ul>
+ 
+            <div class="hamburger" id="hamburger">
+ 
+                <span></span>
+ 
+                <span></span>
+ 
+                <span></span>
+ 
+            </div>
+ 
+        </div>
+ 
+    </nav>
+ 
+ 
+ 
+    <!-- Hero Section -->
+ 
+    <section class="hero" id="home">
+ 
+        <div class="hero-overlay"></div>
+ 
+        <div class="hero-content">
+ 
+            <h1 class="hero-title animate-fade-in">Welcome to Thé Local Café </h1>
+ 
+            <p class="hero-subtitle animate-fade-in-delay">FROM INDIA'S FIRST ORGANIC STATE</p>
+ 
+            <div class="hero-buttons animate-fade-in-delay-2">
+ 
+                <a href="#menu" class="btn btn-primary">View Menu</a>
+ 
+                <a href="#contact" class="btn btn-secondary">Reserve Table</a>
+ 
+            </div>
+ 
+        </div>
+ 
+        <div class="scroll-indicator">
+ 
+            <div class="mouse"></div>
+ 
+        </div>
+ 
+    </section>
+ 
+ 
+ 
+    <!-- About Section -->
+ 
+    <section class="about" id="about">
+ 
+        <div class="container">
+ 
+            <div class="section-header">
+ 
+                <span class="section-subtitle">Details</span>
+ 
+                <h2 class="section-title">About Thé Local Café</h2>
+ 
+                <div class="title-underline"></div>
+ 
+            </div>
+ 
+            <div class="about-content">
+ 
+                <div class="about-image reveal">
+ 
+                    <img src="asset/12.jpg" alt="Cafe Interior">
+ 
+                    <div class="about-image-overlay">
+ 
+                        <div class="experience-badge">
+ 
+                            <span class="experience-number">1K+</span>
+ 
+                            <span class="experience-text">Happy Reviews</span>
+ 
+                        </div>
+ 
+                    </div>
+ 
+                </div>
+ 
+                <div class="about-text reveal">
+ 
+                    <h3>304, I, Block R, Greater Kailash I, Greater Kailash, New Delhi, Delhi 110048, India</h3>
+ 
+                    <p>The Local Café is a charming eatery known for its cozy wooden interiors and a menu inspired by the flavours of India’s North East. Its branches include locations in <b>Sikkim (MG Marg, Vajra, NN Road) and in Delhi at Greater Kailash 1 (GK-1). </b> The café emphasizes locally sourced, organic ingredients—especially from Sikkim—and offers comforting regional dishes like momos, Sikkimese rice bowls, and unique drinks such as the Everest Latte. <br> <br>
+                       <div style="color: #D4A574;"> <b> Monday
+11am - 9:30pm <br>
+
+Tuesday
+
+11am - 9:30pm <br>
+
+Wednesday
+
+11am - 9:30pm <br>
+
+Thursday
+
+11am - 9:30pm <br>
+
+Friday
+
+11am - 9:30pm <br>
+
+Saturday
+
+11am - 9:30pm <br>
+
+Sunday
+
+11am - 9:30pm </div></b>
+                    </p>
+ 
+                    <div class="about-features">
+ 
+                        <div class="feature-item">
+ 
+                            <div class="feature-icon">☕</div>
+ 
+                            <h4>Premium Coffee</h4>
+ 
+                            <p>Sourced from the finest beans</p>
+ 
+                        </div>
+ 
+                        <div class="feature-item">
+ 
+                            <div class="feature-icon">🍽️</div>
+ 
+                            <h4>Gourmet Cuisine</h4>
+ 
+                            <p>Chef-crafted delicious meals</p>
+ 
+                        </div>
+ 
+                        <div class="feature-item">
+ 
+                            <div class="feature-icon">🌟</div>
+ 
+                            <h4>Cozy Ambiance</h4>
+ 
+                            <p>Perfect atmosphere for dining</p>
+ 
+                        </div>
+ 
+                    </div>
+ 
+                </div>
+ 
+            </div>
+ 
+        </div>
+ 
+    </section>
+ 
+ 
+ 
+    <!-- Menu Section -->
+ 
+    <section class="menu" id="menu">
+ 
+        <div class="container">
+ 
+            <div class="section-header">
+ 
+                <span class="section-subtitle">Delicious Offerings</span>
+ 
+                <h2 class="section-title">Our Special Menu</h2>
+ 
+                <div class="title-underline"></div>
+ 
+            </div>
+ 
+            
+ 
+            <div class="menu-tabs">
+ 
+                <button class="menu-tab active" data-category="all">All</button>
+ 
+                <button class="menu-tab" data-category="breakfast">Breakfast</button>
+ 
+                <button class="menu-tab" data-category="lunch">Lunch</button>
+ 
+                <button class="menu-tab" data-category="beverages">Beverages</button>
+ 
+                <button class="menu-tab" data-category="desserts">Desserts</button>
+ 
+            </div>
+ 
+ 
+ 
+            <div class="menu-grid">
+ 
+                <div class="menu-item reveal" data-category="breakfast">
+ 
+                    <div class="menu-item-image">
+ 
+                        <img src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?w=400&h=300&fit=crop" alt="Pancakes">
+ 
+                        <div class="menu-item-overlay">
+ 
+                            <button class="btn-order">Order Now</button>
+ 
+                        </div>
+ 
+                    </div>
+ 
+                    <div class="menu-item-content">
+ 
+                        <div class="menu-item-header">
+ 
+                            <h3>Fluffy Pancakes</h3>
+ 
+                            <span class="price">Popular</span>
+ 
+                        </div>
+ 
+                        <p>Stack of golden pancakes with maple syrup, fresh berries, and whipped cream</p>
+ 
+                    </div>
+ 
+                </div>
+ 
+ 
+ 
+                <div class="menu-item reveal" data-category="breakfast">
+ 
+                    <div class="menu-item-image">
+ 
+                        <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?w=400&h=300&fit=crop" alt="Avocado Toast">
+ 
+                        <div class="menu-item-overlay">
+ 
+                            <button class="btn-order">Order Now</button>
+ 
+                        </div>
+ 
+                    </div>
+ 
+                    <div class="menu-item-content">
+ 
+                        <div class="menu-item-header">
+ 
+                            <h3>Avocado Toast</h3>
+ 
+                            <span class="price">Popular</span>
+ 
+                        </div>
+ 
+                        <p>Smashed avocado on sourdough with poached eggs and cherry tomatoes</p>
+ 
+                    </div>
+ 
+                </div>
+ 
+ 
+ 
+                <div class="menu-item reveal" data-category="lunch">
+ 
+                    <div class="menu-item-image">
+ 
+                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=300&fit=crop" alt="Burger">
+ 
+                        <div class="menu-item-overlay">
+ 
+                            <button class="btn-order">Order Now</button>
+ 
+                        </div>
+ 
+                    </div>
+ 
+                    <div class="menu-item-content">
+ 
+                        <div class="menu-item-header">
+ 
+                            <h3>Gourmet Burger</h3>
+ 
+                            <span class="price">Popular</span>
+ 
+                        </div>
+ 
+                        <p>Juicy beef patty with cheese, lettuce, tomato, and special sauce</p>
+ 
+                    </div>
+ 
+                </div>
+ 
+ 
+ 
+                <div class="menu-item reveal" data-category="lunch">
+ 
+                    <div class="menu-item-image">
+ 
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop" alt="Salad">
+ 
+                        <div class="menu-item-overlay">
+ 
+                            <button class="btn-order">Order Now</button>
+ 
+                        </div>
+ 
+                    </div>
+ 
+                    <div class="menu-item-content">
+ 
+                        <div class="menu-item-header">
+ 
+                            <h3>Caesar Salad</h3>
+ 
+                            <span class="price">popular</span>
+ 
+                        </div>
+ 
+                        <p>Fresh romaine lettuce, parmesan, croutons with creamy caesar dressing</p>
+ 
+                    </div>
+ 
+                </div>
+ 
+ 
+ 
+                <div class="menu-item reveal" data-category="beverages">
+ 
+                    <div class="menu-item-image">
+ 
+                        <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&h=300&fit=crop" alt="Cappuccino">
+ 
+                        <div class="menu-item-overlay">
+ 
+                            <button class="btn-order">Order Now</button>
+ 
+                        </div>
+ 
+                    </div>
+ 
+                    <div class="menu-item-content">
+ 
+                        <div class="menu-item-header">
+ 
+                            <h3>Cappuccino</h3>
+ 
+                            <span class="price">Popular</span>
+ 
+                        </div>
+ 
+                        <p>Rich espresso with steamed milk and velvety foam, topped with cocoa</p>
+ 
+                    </div>
+ 
+                </div>
+ 
+ 
+ 
+                <div class="menu-item reveal" data-category="beverages">
+ 
+                    <div class="menu-item-image">
+ 
+                        <img src="https://images.unsplash.com/photo-1497534547324-0ebb3f052e88?w=400&h=300&fit=crop" alt="Smoothie">
+ 
+                        <div class="menu-item-overlay">
+ 
+                            <button class="btn-order">Order Now</button>
+ 
+                        </div>
+ 
+                    </div>
+ 
+                    <div class="menu-item-content">
+ 
+                        <div class="menu-item-header">
+ 
+                            <h3>Berry Smoothie</h3>
+ 
+                            <span class="price">Popular</span>
+ 
+                        </div>
+ 
+                        <p>Blend of fresh berries, banana, yogurt, and honey for a healthy treat</p>
+ 
+                    </div>
+ 
+                </div>
+ 
+ 
+ 
+                <div class="menu-item reveal" data-category="desserts">
+ 
+                    <div class="menu-item-image">
+ 
+                        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop" alt="Cheesecake">
+ 
+                        <div class="menu-item-overlay">
+ 
+                            <button class="btn-order">Order Now</button>
+ 
+                        </div>
+ 
+                    </div>
+ 
+                    <div class="menu-item-content">
+ 
+                        <div class="menu-item-header">
+ 
+                            <h3>NY Cheesecake</h3>
+ 
+                            <span class="price">Popular</span>
+ 
+                        </div>
+ 
+                        <p>Creamy cheesecake with graham cracker crust and berry compote</p>
+ 
+                    </div>
+ 
+                </div>
+ 
+ 
+ 
+                <div class="menu-item reveal" data-category="desserts">
+ 
+                    <div class="menu-item-image">
+ 
+                        <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400&h=300&fit=crop" alt="Chocolate Cake">
+ 
+                        <div class="menu-item-overlay">
+ 
+                            <button class="btn-order">Order Now</button>
+ 
+                        </div>
+ 
+                    </div>
+ 
+                    <div class="menu-item-content">
+ 
+                        <div class="menu-item-header">
+ 
+                            <h3>Chocolate Lava Cake</h3>
+ 
+                            <span class="price">Popular</span>
+ 
+                        </div>
+ 
+                        <p>Warm chocolate cake with molten center, served with vanilla ice cream</p>
+ 
+                    </div>
+ 
+                </div>
+ 
+            </div>
+ 
+        </div>
+ 
+    </section>
+ 
+ 
+ 
+    <!-- Gallery Section -->
+ 
+    <section class="gallery" id="gallery">
+ 
+        <div class="container">
+ 
+            <div class="section-header">
+ 
+                <span class="section-subtitle">Visual Feast</span>
+ 
+                <h2 class="section-title">Our Gallery</h2>
+ 
+                <div class="title-underline"></div>
+ 
+            </div>
+ 
+            <div class="gallery-grid">
+ 
+                <div class="gallery-item reveal">
+ 
+                    <img src="asset/1.jpg" alt="Restaurant ">
+ 
+                    <div class="gallery-overlay">
+ 
+                        <h3>Restaurant View</h3>
+ 
+                    </div>
+ 
+                </div>
+ 
+                <div class="gallery-item reveal">
+ 
+                    <img src="asset/2.png" alt="View">
+ 
+                    <div class="gallery-overlay">
+ 
+                        <h3>Angle view</h3>
+ 
+                    </div>
+ 
+                </div>
+ 
+                <div class="gallery-item reveal">
+ 
+                    <img src="asset/3.png" alt="Internal view in sikkim cafe">
+ 
+                    <div class="gallery-overlay">
+ 
+                        <h3>Internal view</h3>
+ 
+                    </div>
+ 
+                </div>
+ 
+                <div class="gallery-item reveal">
+ 
+                    <img src="asset/5.jpg" alt=" Seating">
+ 
+                    <div class="gallery-overlay">
+ 
+                        <h3> Dining</h3>
+ 
+                    </div>
+ 
+                </div>
+ 
+                <div class="gallery-item reveal">
+ 
+                    <img src="asset/11.jpg" alt="Fresh ">
+ 
+                    <div class="gallery-overlay">
+ 
+                        <h3>Fresh </h3>
+ 
+                    </div>
+ 
+                </div>
+ 
+                <div class="gallery-item reveal">
+ 
+                    <img src="asset/6.jpg" alt="">
+ 
+                    <div class="gallery-overlay">
+ 
+                        <h3>Sweet Treats</h3>
+ 
+                    </div>
+ 
+                </div>
+ 
+            </div>
+ 
+        </div>
+ 
+    </section>
+ 
+ 
+ 
+    <!-- Testimonials Section -->
+ 
+    <section class="testimonials" id="testimonials">
+ 
+        <div class="container">
+ 
+            <div class="section-header">
+ 
+                <span class="section-subtitle">What People Say</span>
+ 
+                <h2 class="section-title">Customer Reviews</h2>
+ 
+                <div class="title-underline"></div>
+ 
+            </div>
+ 
+            <div class="testimonials-grid">
+ 
+                <div class="testimonial-card reveal">
+ 
+                    <div class="stars">★★★★★</div>
+ 
+                    <p class="testimonial-text">"what a lovely ambience, and such good food! i had purple potion lemonade, jhol momos, kothey momos and thenthuk, all veg. absolutely loved the momos and i’m definitely going back for it. "                <br><br></p>
+ 
+                    <div class="testimonial-author">
+ 
+                        <img src="https://i.pravatar.cc/100?img=1" alt="Sarah Johnson">
+ 
+                        <div>
+ 
+                            <h4>Sarah Johnson</h4>
+ 
+                            <span>Food Blogger</span>
+ 
+                        </div>
+ 
+                    </div>
+ 
+                </div>
+ 
+                <div class="testimonial-card reveal">
+ 
+                    <div class="stars">★★★★★</div>
+ 
+                    <p class="testimonial-text">"Ambience: this place is in one of the most peaceful locations in GK, it is not noisy as how it is in Delhi. Inside the cafeteria also they have a pleasant atmosphere and will make you feel like you will visit again. 😌"</p>
+ 
+                    <div class="testimonial-author">
+ 
+                        <img src="https://i.pravatar.cc/100?img=3" alt="Michael Chen">
+ 
+                        <div>
+ 
+                            <h4>Michael Chen</h4>
+ 
+                            <span>Regular Customer</span>
+ 
+                        </div>
+ 
+                    </div>
+ 
+                </div>
+ 
+                <div class="testimonial-card reveal">
+ 
+                    <div class="stars">★★★★★</div>
+ 
+                    <p class="testimonial-text">"Great cozy little country style Tibetan themed cafe. Tasty food, hygienic, nicely served with good quantity per serve. Great experience with cafe sitting at the height of neem tree. Gives a feeling of tree house. "</p>
+ 
+                    <div class="testimonial-author">
+ 
+                        <img src="https://i.pravatar.cc/100?img=5" alt="Emily Rodriguez">
+ 
+                        <div>
+ 
+                            <h4>Emily Rodriguez</h4>
+ 
+                            <span>Coffee Enthusiast</span>
+ 
+                        </div>
+ 
+                    </div>
+ 
+                </div>
+ 
+            </div>
+ 
+        </div>
+ 
+    </section>
+ 
+ 
+ 
+    <!-- Contact Section -->
+ 
+    <section class="contact" id="contact">
+ 
+        <div class="container">
+ 
+            <div class="section-header">
+ 
+                <span class="section-subtitle">Get In Touch</span>
+ 
+                <h2 class="section-title">Contact Us</h2>
+ 
+                <div class="title-underline"></div>
+ 
+            </div>
+ 
+            <div class="contact-content">
+ 
+                <div class="contact-info reveal">
+ 
+                    <h3>Visit Us Today</h3>
+ 
+                    <p>We'd love to serve you! Come visit us or get in touch for reservations and inquiries.</p>
+ 
+                    <div class="info-item">
+ 
+                        <div class="info-icon">🏠︎</div>
+ 
+                        <div>
+ 
+                            <h4>Address</h4>
+ 
+                            <p>304, I, Block R, Greater Kailash I, Greater Kailash, <br>New Delhi, Delhi 110048, India</p>
+ 
+                        </div>
+ 
+                    </div>
+ 
+                    <div class="info-item">
+ 
+                        <div class="info-icon">☏</div>
+ 
+                        <div>
+ 
+                            <h4>Phone</h4>
+ 
+                            <p>+1 (000) 000-0000</p>
+ 
+                        </div>
+ 
+                    </div>
+ 
+                    <div class="info-item">
+ 
+                        <div class="info-icon">✉</div>
+ 
+                        <div>
+ 
+                            <h4>Email</h4>
+ 
+                            <p>TheLocalCafe@gmail.com</p>
+ 
+                        </div>
+ 
+                    </div>
+ 
+                    <div class="info-item">
+ 
+                        <div class="info-icon">⏱</div>
+ 
+                        <div>
+ 
+                            <h4>Hours</h4>
+ 
+                            <p>Mon - Fri: 11am - 9:30pm PM<br>Sat - Sun: 11am - 9:30pm PM</p>
+ 
+                        </div>
+ 
+                    </div>
+ 
+                </div>
+ 
+                <div class="contact-form reveal">
+ 
+                    <form id="contactForm">
+ 
+                        <div class="form-group">
+ 
+                            <input type="text" id="name" placeholder="Your Name" required>
+ 
+                        </div>
+ 
+                        <div class="form-group">
+ 
+                            <input type="email" id="email" placeholder="Your Email" required>
+ 
+                        </div>
+ 
+                        <div class="form-group">
+ 
+                            <input type="tel" id="phone" placeholder="Phone Number">
+ 
+                        </div>
+ 
+                        <div class="form-group">
+ 
+                            <input type="date" id="date" placeholder="Reservation Date">
+ 
+                        </div>
+ 
+                        <div class="form-group">
+ 
+                            <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+ 
+                        </div>
+ 
+                        <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+ 
+                    </form>
+ 
+                </div>
+ 
+            </div>
+ 
+        </div>
+ 
+    </section>
+ 
+ 
+ 
+    <!-- Footer -->
+ 
+    <footer class="footer">
+ 
+        <div class="container">
+ 
+            <div class="footer-content">
+ 
+                <div class="footer-section">
+ 
+                    <h3>Thé Local <span>CAFE</span></h3>
+ 
+                    <p>Experience the perfect blend of taste and ambiance. Join us for an unforgettable dining experience.</p>
+ 
+                    <div class="social-links">
+ 
+                        <a href="#" class="social-link">🏠︎</a>
+ 
+                        <a href="#" class="social-link"> </a>
+ 
+                        <a href="#" class="social-link">🐦</a>
+ 
+                        <a href="#" class="social-link">📌</a>
+ 
+                    </div>
+ 
+                </div>
+ 
+                <div class="footer-section">
+ 
+                    <h4>Quick Links</h4>
+ 
+                    <ul>
+ 
+                        <li><a href="#home">Home</a></li>
+ 
+                        <li><a href="#about">About Us</a></li>
+ 
+                        <li><a href="#menu">Menu</a></li>
+ 
+                        <li><a href="#gallery">Gallery</a></li>
+ 
+                    </ul>
+ 
+                </div>
+ 
+                <div class="footer-section">
+ 
+                    <h4>Services</h4>
+ 
+                    <ul>
+ 
+                        <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeRoXxBCoA3BobnUiQLS9JQZ8cy7PKZBC6Nv1LjV-tY0k7TSQ/viewform?usp=send_form&fbclid=PAb21jcAOHxb9leHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcIY2FsbHNpdGUCMTUAAadubdQ6woEGqBIKb2EDdKwjQ2UBZ7l9dGmIlRU3a1cjtnIw2GhNxvK4U01RLQ_aem_9rfmnjF1rS11hE6RtAnNoQ">Appy for Summar Internship</a></li>
+ 
+                        <li><a href="https://link.zomato.com/xqzv/rshare?id=7521166330563aee&fbclid=PAb21jcAOHxeRleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcIY2FsbHNpdGUCMTUAAaebkhcSQRU2nLlqs2kQLWtMr3LZHwP9eWAVjCZmK6ivb7k-DlHgeghDWeC2Lw_aem_Dz2g0k5Tx_hjVHHw150V9w">Zomato (Delhi)</a></li>
+ 
+                    </ul>
+ 
+                </div>
+ 
+                <div class="footer-section">
+ 
+                    <h4>Newsletter</h4>
+ 
+                    <p>Subscribe to get special offers and updates!</p>
+ 
+                    <form class="newsletter-form">
+ 
+                        <input type="email" placeholder="Your email">
+ 
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+ 
+                    </form>
+ 
+                </div>
+ 
+            </div>
+ 
+            <div class="footer-bottom">
+ 
+                <p>&copy; 2024 Thé Local Café. All rights reserved. | Made by <a href="https://www.instagram.com/webkaizen?igsh=MW9uMDk5MXplOXByOA=="style="color: #ffa340,">Webkaizen</a></p>
+ 
+            </div>
+ 
+        </div>
+ 
+    </footer>
+ 
+ 
+ 
+    <script src="script.js"></script>
+ 
+</body>
+ 
+</html>

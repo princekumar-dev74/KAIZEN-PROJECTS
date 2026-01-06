@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Water |@webkaizen</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        :root {
+            --primary: #164e63;
+            --secondary: #06b6d4;
+            --accent: #10b981;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            color: #334155;
+        }
+        
+        .hero-section {
+            height: 80vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.7);
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: fadeInDown 1.5s ease;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            animation: fadeInUp 1.5s ease 0.3s forwards;
+            opacity: 0;
+        }
+        
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+        
+        .card-title i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+        
+        .stats-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 3rem 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .stat-label {
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+        
+        .donate-btn {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(6, 182, 212, 0.4);
+            margin-top: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .donate-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(6, 182, 212, 0.6);
+        }
+        
+        .donate-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .donate-btn:hover::before {
+            left: 100%;
+        }
+        
+        .team-members {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .team-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .team-img {
+            width: 100%;
+            height: 250px;
+            object-fit:fill;
+        }
+        
+        .team-info {
+            padding: 1.5rem;
+        }
+        
+        .team-name {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .team-role {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .insta {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .insta {
+            justify-content: center;
+            align-items: center;
+            justify-content: center;
+            margin: 0 10px;
+            color: white;
+            font-size: 2rem;
+            transition: all 0.3s ease;
+
+
+        }
+        
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 10px;
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+
+            .hero-section {
+                height: auto;
+                padding: 3rem 1rem;
+                flex-direction: column;
+    }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .stats-container {
+                flex-direction: column;
+            }
+            
+            .stat-item {
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-image">
+            <img src="mr.jpg" alt="Mr. Beast and Team Water members standing together near a water well in a desert area">
+        </div>
+        <div class="hero-content">
+            <h1><b>Team Water</b></h1>
+            <p>A Mr. Beast initiative to provide clean water to those in need.
+                <br>3000+ youtuber team-members
+            </p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section">
+        <h2 class="section-title">About Team Water</h2>
+
+        <div class="card">
+            <h3 class="card-title"><i class="fas fa-globe-americas"></i> What is Team Water</h3>
+            <p>MrBeast and several global creators launched the #TeamWater initiative in partnership with WaterAid, aiming to raise $40 million by August 31, 2025 to provide clean drinking water to 2 million people across the world..</p>
+        </div>
+        
+        <div class="card">
+            <h3 class="card-title"><i class="fas fa-tint"></i> Our Mission</h3>
+            <p>Team Water is a philanthropic initiative founded by YouTube superstar Mr. Beast (Jimmy Donaldson) with the mission to provide clean, safe drinking water to communities around the world that lack access to this basic human necessity. Recognizing that millions of people suffer from water scarcity and contaminated water sources, Team Water builds wells, installs purification systems, and implements sustainable water solutions in underserved regions.</p>
+        </div>
+        
+        <div class="card">
+            <h3 class="card-title"><i class="fas fa-globe-americas"></i> Global Impact</h3>
+            <p>Since its inception, Team Water has completed projects in over 15 countries across Africa, Asia, and South America. The initiative focuses on areas where water scarcity contributes to poverty, disease, and limited economic opportunities. Each project is carefully planned to ensure long-term sustainability, often involving local communities in maintenance training and governance of water resources.</p>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title"><i class="fa-regular fa-wrench"></i>Team Water's Strategy</h3>
+            <p>Every project is designed to be sustainable for at least 20 . <br>
+Local communities are trained in maintenance, repairs, and water management. <br>
+Solutions vary by region: solar wells, rainwater harvesting, gravity-fed pipelines, and filtration units.</p>
+        </div>
+
+         <div class="card">
+            <h3 class="card-title"><i class="fa-solid fa-bullseye"></i></i>Overall Goal</h3>
+            <p>Raise $40 million by the end of August 2025. <br>Bring clear, safe drinking water to 2 million people in underserved areas around the World. <br>Create long-term impact, not just temporary fixes.
+            </p>
+        </div>
+        
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number" id="wells-counter">Rising ⇧</div>
+                <div class="stat-label">Wells Built</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="people-counter">Rising ⇧</div>
+                <div class="stat-label">People Impacted</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="countries-counter">Rising ⇧</div>
+                <div class="stat-label">Countries Reached</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Members Section -->
+    <section class="section" style="background-color: #f8fafc;">
+        <h2 class="section-title">Meet The Team</h2>
+        
+        <div class="team-members">
+            <div class="team-card">
+                <img class="team-img" src="1.jpeg" alt="Mr. Beast">
+                <div class="team-info">
+                    <h3 class="team-name">Mr. Beast</h3>
+                    <p class="team-role">Founder</p>
+                    <p>The visionary behind Team Water and countless other philanthropic initiatives, using his platform to make positive change.</p>
+                </div>
+            </div>
+            
+            <div class="team-card">
+                <img class="team-img" src="2.jpg" alt="Mark Rober">
+                <div class="team-info">
+                    <h3 class="team-name">Mark Rober</h3>
+                    <p class="team-role">Team Member</p>
+                    <p>Co-Founder of team water and a former NASA engineer. Explained the science behind ocean cleanup in simple terms.</p>
+                </div>
+            </div>
+            
+            <div class="team-card">
+                <img class="team-img" src="3.jpg" alt="Field coordinator talking with local villagers">
+                <div class="team-info">
+                    <h3 class="team-name">Ben Azelart & Stokes Twins </h3>
+                    <p class="team-role">Team Members</p>
+                    <p>Both are help the Team Water Campaign succeed by using their influence to spread awareness, educate viewers and rise donations.</p>
+                </div>
+            </div>
+            
+            <div class="team-card">
+                <img class="team-img" src="4.png" alt="Team member analyzing project data on laptop">
+                <div class="team-info">
+                    <h3 class="team-name">3000+ youtuber</h3>
+                    <p class="team-role">Joined Team Water</p>
+                    <p>Over 3,000+ youtuber joined MrBeast and Mark Rober to support the Tam Water Campaign.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section">
+        <h2 class="section-title">Some Recent Projects</h2>
+        
+        <div class="card">
+            <h3 class="card-title"><i class="fas fa-hand-holding-water"></i>Malawi (Dyetse Village Africa) </h3>
+            <p>Solar-powered water point installed in Dyetse Village to provide clean drinking water for local residents. Project included a newly drilled well or filtration point, combined with solar energy to run the pump/dispenser. WaterAid led construction and trained community members to maintain the system long-term. Part of broader infrastructure upgrades in rural Malawi supported by WaterAid’s local team.  </p>
+        </div>
+        
+        <div class="card">
+            <h3 class="card-title"><i class="fas fa-hand-holding-water"></i>Colombia ( La Guajira desert, South America)</h3>
+            <p>A 10,000‑liter storage tank constructed to hold clean water. Pipeline network installed to deliver water to nearby settlements. Three-stage filtration system installed to remove dirt, salt, and bacteria—powered by solar panels. Local residents were trained to operate and maintain the system. 
+            </p>
+        </div>
+        
+        <div class="card">
+            <h3 class="card-title"><i class="fas fa-hand-holding-water"></i>Nepal (Remote mountain Village, Asia) </h3>
+            <p>Built three 15,000‑liter tanks on a hillside above 300+ villagers. Equipped each tank with disinfection/filtration mechanisms to ensure safe drinking water. Delivered water closer to homes—cutting the need to fetch from distant or unsafe sources. Project filming by the Stokes Twins highlighted long journeys residents made previously.</p>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title"><i class="fas fa-hand-holding-water"></i> Ecuador (River-based community, South America)</h3>
+            <p>Implemented reverse-osmosis filtration units to purify contaminated river water. Installed systems linked to village water storage tanks. Distributed portable filtration bags for personal use to ensure safe water access on the go. Done in collaboration with creator partners and community groups.</p>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title"><i class="fas fa-hand-holding-water"></i>Zambia (Large rural community, Africa)</h3>
+            <p>Community of ~9,000 people had relied on shallow, polluted wells. #TeamWater installed three 10,000‑liter tanks, supported by water-access stations. Clean water is now reliably available without walking miles or using unsafe sources. Local community-led operation ensures sustainability and training by WaterAid.</p>
+        </div>
+
+
+    </section>
+
+    <!-- Donation Section -->
+    <section class="section" style="text-align: center">
+        <h2 class="section-title">Make A Difference</h2>
+        <p style="max-width: 700px; margin: 0 auto 2rem; font-size: 1.1rem;">Every contribution helps us bring clean water to more communities. Your donation will directly fund well construction, maintenance, and water purification projects around the world.</p>
+        
+        <a href="https://teamwater.org/donate" class="donate-btn" id="donation-link">
+            <i class="fas fa-heart" style="margin-right: 10px;"></i> Donate Now
+        </a>
+        
+        <div style="margin-top: 3rem;">
+            <p>For more information about Team Water's projects and impact reports:</p>
+            <a href="https://teamwater.org" style="color: var(--secondary); text-decoration: underline;">Visit Our Official Website</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="https://youtu.be/Z4hVGCWH1Kc?si=ZD8QywQ3ff3Fv0SB" class="social-link"><i class="fab fa-youtube"></i></a>
+            <a href="twitter.com/MrBeast" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/mrbeast?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="facebook.com/mrbeast" class="social-link"><i class="fa-brands fa-facebook"></i></a>
+        </div>
+        
+        <p>© 2025 Team Water | A Mr. Beast Initiative. <hr>created by prince kumar </p> <a class="insta" href="https://www.instagram.com/prince_kumar_74_/?__pwa=1" class="social-link"><i class="fab fa-instagram"></i></a>
+        <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">Changing lives one drop at a time</p>
+    </footer>
+
+    <script>
+        // Counter animation
+        function animateCounter(elementId, finalValue, duration = 2000) {
+            let start = 0;
+            const element = document.getElementById(elementId);
+            const increment = finalValue / (duration / 16);
+            
+            const timer = setInterval(() => {
+                start += increment;
+                if (start >= finalValue) {
+                    element.textContent = finalValue.toLocaleString();
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(start).toLocaleString();
+                }
+            }, 16);
+        }
+        
+        // Add click event for donation button
+        document.getElementById('donation-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('You will now be redirected to Team Water\'s official donation page');
+            window.open(this.href, '_blank');
+        });
+        
+        // Start counters after page loads
+        window.addEventListener('load', initCounters);
+    </script>
+</body>
+</html>

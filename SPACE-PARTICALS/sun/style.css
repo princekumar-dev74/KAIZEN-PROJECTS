@@ -1,0 +1,10 @@
+/* Copyright (c) 2025 by Fabio E Zola (https://codepen.io/equant_org/pen/RNayBgp) */
+html,body { margin:0; padding:0; height:100%; overflow:hidden; background:#000; }
+  #ui {
+	position:fixed; top:10px; left:10px; z-index:20;
+	background:rgba(0,0,0,0.5); padding:10px 14px; border-radius:8px;
+	color:#eee; font-family:system-ui, sans-serif; font-size:14px;
+  }
+  label { display:block; margin:6px 0 2px; color:#ccc; }
+  canvas { width:100vw; height:100vh; display:block; }
+  #err { margin-top:8px; white-space:pre; color:#ffb; font-family:monospace; display:none;}

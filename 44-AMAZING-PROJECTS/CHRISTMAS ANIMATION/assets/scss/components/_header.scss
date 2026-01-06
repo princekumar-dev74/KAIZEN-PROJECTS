@@ -1,0 +1,61 @@
+/*=============== HEADER & NAV ===============*/
+.header{
+   position: fixed;
+   width: 100%;
+   top: 0;
+   left: 0;
+   background-color: transparent;
+   z-index: var(--z-fixed);
+}
+
+.nav{
+   position: relative;
+   height: var(--header-height);
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+
+   &__logo{
+      color: var(--white-color);
+      font-family: var(--second-font);
+   }
+   &__toggle,
+   &__close{
+      display: flex;
+      font-size: 1.5rem;
+      cursor: pointer;
+   }
+   // Navigation for mobile devices
+   &__menu{
+      @media screen and (max-width: 1150px){
+         position: fixed;
+         top: -120%;
+         left: 0;
+         background-color: var(--first-color);
+         box-shadow: 0 2px 16px hsla(0, 0%, 0%, .3);
+         width: 100%;
+         padding-block: 3.5rem;
+         transition: top .4s;
+      }
+   }
+   &__list{
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      row-gap: 2rem;
+   }
+   &__link{
+      color: var(--white-color);
+      font-weight: var(--font-semi-bold);
+   }
+   &__close{
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+   }
+}
+
+/* Show menu */
+.show-menu{
+   top: 0;
+}

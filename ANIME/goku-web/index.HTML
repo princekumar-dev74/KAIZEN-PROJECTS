@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Goku | webkaizen</title>
+  <meta name="description" content="Ultra-stylish Goku themed website template. Replace PNGs in /assets to customize." />
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom styles & animations */
+    :root{
+      --bg-1: #05060a; /* deep space black */
+      --accent-orange: #ff7a00;
+      --accent-blue: #1ea7ff;
+      --accent-gold: #ffd24d;
+    }
+    body{background: radial-gradient(circle at 10% 10%, rgba(30,167,255,0.06), transparent 10%), radial-gradient(circle at 90% 90%, rgba(255,122,0,0.03), transparent 12%), var(--bg-1);}
+
+    /* Aura glow behind hero */
+    .aura {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      pointer-events: none;
+    }
+    .aura::before{
+      content: '';
+      width: 80vmin;
+      height: 80vmin;
+      border-radius: 50%;
+      filter: blur(40px) saturate(140%);
+      background: radial-gradient(circle at 40% 35%, rgba(255,210,77,0.45), transparent 35%), radial-gradient(circle at 60% 65%, rgba(30,167,255,0.18), transparent 40%);
+      animation: pulseAura 2.8s infinite ease-in-out;
+      opacity: .9;
+    }
+    @keyframes pulseAura{
+      0%{transform: scale(0.98); opacity:.85}
+      50%{transform: scale(1.06); opacity:1}
+      100%{transform: scale(0.98); opacity:.85}
+    }
+
+    /* energy sparks */
+    .spark{position:absolute; width:6px; height:6px; border-radius:50%; filter:blur(1px); opacity:0.95; animation: floatUp linear infinite;}
+    @keyframes floatUp{
+      from{transform: translateY(0) scale(0.6); opacity:1}
+      to{transform: translateY(-80px) scale(1); opacity:0}
+    }
+
+    /* hover pulse for gallery */
+    .aura-pulse{transition: transform .28s ease, box-shadow .28s ease}
+    .aura-pulse:hover{transform: translateY(-6px) scale(1.02); box-shadow: 0 30px 60px rgba(0,0,0,0.45), 0 0 24px rgba(255,210,77,0.08)}
+
+    /* glass card */
+    .glass{
+      background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      backdrop-filter: blur(6px) saturate(120%);
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+
+    /* subtle moving background energy wave */
+    .energy-wave{background: linear-gradient(90deg, rgba(30,167,255,0.05), transparent 25%, rgba(255,122,0,0.05)); height: 160px; overflow:hidden}
+    .energy-wave::after{content:''; display:block; height:100%; width:200%; background-image: radial-gradient(circle at 10% 30%, rgba(255,255,255,0.02), transparent 5%); animation: moveWave 12s linear infinite}
+    @keyframes moveWave{0%{transform: translateX(0)} 100%{transform: translateX(-50%)} }
+
+    /* responsive hero image sizing */
+    .hero-img{max-width:42rem}
+
+    /* glow text */
+    .neon-text{text-shadow: 0 2px 10px rgba(30,167,255,0.08), 0 0 18px rgba(255,122,0,0.06)}
+
+  </style>
+</head>
+<body class="text-white antialiased">
+  <!-- NAV -->
+  <nav class="w-full fixed top-0 left-0 z-40">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
+  <div class="w-10 h-10 rounded-full bg-gradient-to-br from-orange-500 to-yellow-300 flex items-center justify-center shadow-lg overflow-hidden">
+    <img src="GOKU IMG/webkaizen.jpg" alt="webkaizen" class="w-full h-full object-cover rounded-full">
+  </div>
+  <span class="font-bold text-lg">WebKaizen</span>
+</a>
+
+      </a>
+      <div class="hidden md:flex items-center gap-6">
+        <a href="#about" class="text-sm hover:text-orange-400">About</a>
+        <a href="#gallery" class="text-sm hover:text-orange-400">Gallery</a>
+        <a href="#features" class="text-sm hover:text-orange-400">Features</a>
+        <a href="#contact" class="text-sm hover:text-orange-400">Contact</a>
+      </div>
+      <button class="md:hidden p-2 rounded bg-white/5">Menu</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="pt-24 pb-12">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-8">
+      <div class="flex-1 relative text-center md:text-left">
+        <div class="aura" aria-hidden="true"></div>
+        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight neon-text">UNLEASH THE <span class="text-orange-400">KI</span> — GOKU</h1>
+        <p class="mt-4 text-gray-200 max-w-xl">A futuristic animated showcase of Son Goku — high quality 3D renders, smooth aura animations and responsive layout for modern websites. Use PNGs with transparent backgrounds to replace the sample images.</p>
+        <div class="mt-6 flex items-center gap-4 justify-center md:justify-start">
+          <a href="#gallery" class="px-5 py-3 rounded-xl bg-gradient-to-r from-orange-500 to-yellow-400 font-semibold shadow-lg">View Gallery</a>
+          <a href="#features" class="px-5 py-3 rounded-xl glass border border-white/10">Explore Features</a>
+        </div>
+
+        <!-- small aura sparks (decorative) -->
+        <div class="absolute -right-10 top-28 pointer-events-none" style="width:180px;height:220px;">
+          <div class="spark" style="left:10%; bottom:18px; background: rgba(255,210,77,0.95); animation-duration:1.2s"></div>
+          <div class="spark" style="left:40%; bottom:8px; background: rgba(30,167,255,0.95); animation-duration:1.8s"></div>
+          <div class="spark" style="left:70%; bottom:28px; background: rgba(255,122,0,0.95); animation-duration:2.6s"></div>
+        </div>
+
+      </div>
+
+      <div class="flex-1 flex justify-center md:justify-end relative">
+        <!-- hero 3D PNG: replace src with assets/goku-hero.png (transparent PNG) -->
+        <div class="hero-img relative">
+          <img src="GOKU IMG/2.png" alt="Goku Hero PNG" class="w-full drop-shadow-2xl" />
+          <!-- overlay aura element for additional glow -->
+          <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+            <div class="aura"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about" class="py-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-3 gap-6 items-center">
+        <div class="md:col-span-2 glass p-6 rounded-2xl">
+          <h2 class="text-2xl font-bold">About This Showcase</h2>
+          <p class="mt-3 text-gray-200">This template is built to showcase high-quality 3D PNG renders of Son Goku in multiple forms. The site uses vivid orange &amp; electric blue accents, cinematic glow, and glassmorphism cards to keep focus on the characters. Replace images in <code>assets/</code> folder with your rendered PNGs (transparent background).</p><br>
+          <br>
+            <i class="fa-brands fa-battle-net">Responsive layout  .......................................................................................G........................................................... </i><br>
+            <i class="fa-brands fa-battle-net">High-res PNG support (8K ready) ........................................................O...........................................................</i><br>
+            <i class="fa-brands fa-battle-net">Animated aura, sparks & hover effects ..............................................K...........................................................</i><br>
+            <i class="fa-brands fa-battle-net">Easy to customize  .....................................................................................U............................................................</i><br>
+        </div>
+
+        <div class="p-4 rounded-2xl glass flex flex-col items-center">
+          <img src="GOKU IMG/1.png" alt="Goku headshot" class="w-40 h-40 object-contain" />
+          <h3 class="mt-4 font-semibold">Son Goku</h3>
+          <p class="text-sm text-gray-300 mt-2">Born under the name Kakarot, as a member of the Saiyan race on Planet Vegeta, he is sent to Earth as an infant prior to his homeworld's destruction at the hands of Frieza. </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENERGY WAVE DIVIDER -->
+  <div class="energy-wave"></div>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="py-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-2xl font-bold">Gallery</h2>
+      <p class="text-gray-300 mt-2">Different forms and poses —</p>
+      <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- repeat these gallery cards and replace src values -->
+        <div class="p-4 rounded-2xl glass aura-pulse">
+          <div class="relative overflow-hidden rounded-xl">
+            <img src="GOKU IMG/4.png" alt="Goku Base" class="w-fill object-contain" />
+            <div class="absolute bottom-3 left-3 text-sm bg-black/50 px-3 py-1 rounded">Base Form</div>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-2xl glass aura-pulse">
+          <div class="relative overflow-hidden rounded-xl">
+            <img src="GOKU IMG/5.png" alt="goku SSJ" class="w-fill object-contain" />
+            <div class="absolute bottom-3 left-3 text-sm bg-black/50 px-3 py-1 rounded">Super Saiyan</div>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-2xl glass aura-pulse">
+          <div class="relative overflow-hidden rounded-xl">
+            <img src="GOKU IMG/6.png" alt="Goku SSB" class="w-fill object-contain" />
+            <div class="absolute bottom-3 left-3 text-sm bg-black/50 px-3 py-1 rounded">Super Saiyan Blue</div>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-2xl glass aura-pulse">
+          <div class="relative overflow-hidden rounded-xl">
+            <img src="GOKU IMG/7.png" alt="Goku UI" class="w-fill object-contain" />
+            <div class="absolute bottom-3 left-3 text-sm bg-black/50 px-3 py-1 rounded">Ultra Instinct</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="py-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-2xl font-bold">Cute Version</h2>
+      <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="p-6 glass rounded-2xl text-center">
+          <img src="GOKU IMG/3.png" alt="chibi" class="w-50 mx-auto" />
+          <h3 class="mt-4 font-semibold">Cute Goku</h3>
+          <p class="text-sm text-gray-300 mt-2"></p>
+        </div>
+        <div class="p-6 glass rounded-2xl text-center">
+          <img src="GOKU IMG/8.png" alt="chibi" class="w-50 mx-auto" />
+          <h3 class="mt-4 font-semibold">Sir Toriyama version</h3>
+          <p class="text-sm text-gray-300 mt-2"></p>
+        </div>
+        <div class="p-6 glass rounded-2xl text-center">
+          <img src="GOKU IMG/9.png" alt="chibi" class="w-50 mx-auto" />
+          <h3 class="mt-4 font-semibold">Goku Boy</h3>
+          <p class="text-sm text-gray-300 mt-2"></p>
+        </div>
+        <div class="p-6 glass rounded-2xl text-center">
+          <img src="GOKU IMG/10.png" alt="chibi" class="w-40 mx-auto" />
+          <h3 class="mt-4 font-semibold"> Pumpkin Boy</h3>
+          <p class="text-sm text-gray-300 mt-2"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT / FOOTER -->
+  <footer id="contact" class="py-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-6 items-center">
+        <div class="glass p-6 rounded-2xl">
+          <h3 class="text-xl font-bold">Get In Touch</h3>
+          <p class="mt-2 text-gray-300">Need custom renders or help placing PNGs? Replace files in <code>assets/</code> or contact the artist.</p>
+          <form class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <input class="p-3 rounded-lg bg-white/5" placeholder="Name" />
+            <input class="p-3 rounded-lg bg-white/5" placeholder="Email" />
+            <input class="sm:col-span-2 p-3 rounded-lg bg-white/5" placeholder="Message" />
+            <button class="sm:col-span-2 px-4 py-3 rounded-xl bg-gradient-to-r from-orange-500 to-yellow-400">Send</button>
+          </form>
+        </div>
+        <div class="text-right">
+          <p class="text-gray-400">© 2025 webkaizen. All rights reserved.</p>
+          <div class="mt-6 flex justify-end gap-3">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-orange-400 to-yellow-300"></div>
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-cyan-300"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- small script to spawn decorative sparks randomly -->
+  <script>
+    function makeSparks(){
+      const container = document.createElement('div');
+      container.style.position='fixed'; container.style.right='6%'; container.style.top='35%'; container.style.width='220px'; container.style.height='260px'; container.style.pointerEvents='none';
+      for(let i=0;i<8;i++){
+        const s = document.createElement('div'); s.className='spark';
+        s.style.left = Math.random()*100 + '%'; s.style.bottom = Math.random()*100 + 'px';
+        const c = Math.random()>0.5 ? 'rgba(255,210,77,0.95)' : 'rgba(30,167,255,0.95)'; s.style.background=c;
+        s.style.animationDuration = (1.2+Math.random()*1.6)+'s'; s.style.transform = 'translateY(0)';
+        container.appendChild(s);
+      }
+      document.body.appendChild(container);
+    }
+    document.addEventListener('DOMContentLoaded', ()=>{
+      makeSparks();
+    });
+  </script>
+
+</body>
+</html>

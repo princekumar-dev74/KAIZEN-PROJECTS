@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #5c315a;
+        }
+        input {
+            padding: 20px;
+            width: 300px;
+            margin-bottom: 10px;
+            border: 1px solid #15ff00;
+            border-radius: 4px;
+        }
+        button {
+            padding: 20px 30px;
+            margin: 5px;
+            background-color: #34c25f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #ff0000;
+        }
+        #qr-code {
+            margin-top: 20px;
+        }
+        .img {
+            position: fixed;
+            top: auto;
+            left: auto;
+            min-width: 100%;
+            min-height: 100%;
+            object-fit: cover;
+            z-index: -5;
+        }
+        .hiii{
+            color: aliceblue;
+            font size: 70px;
+        }
+    </style>
+</head>
+
+<img class="img" src="1.jpg" alt="">
+
+<body>
+    <h1 class="hiii">QR Code Generator</h1>
+    <input type="text" id="qr-input" placeholder="Enter text or URL" />
+    <button id="generate-btn">Generate QR Code</button>
+    <button id="download-btn" style="display;">Download QR Code</button>
+    <div id="qr-code"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#generate-btn').click(function() {
+                var inputText = $('#qr-input').val();
+                $('#qr-code').empty(); // Clear previous QR code
+                $('#download-btn').hide(); // Hide download button initially
+
+                if (inputText) {
+                    var qrcode = new QRCode(document.getElementById("qr-code"), {
+                        text: inputText,
+                        width: 128,
+                        height: 128,
+                    });
+
+                    // Wait for QR code to be generated
+                    setTimeout(function() {
+                        $('#download-btn').show();
+                    }, 500);
+                } else {
+                    alert("Please enter a valid text or URL.");
+                }
+            });
+
+            $('#download-btn').click(function() {
+                let qrCanvas = document.querySelector('#qr-code canvas');
+                if (qrCanvas) {
+                    let imageData = qrCanvas.toDataURL("image/png");
+                    let a = document.createElement('a');
+                    a.href = imageData;
+                    a.download = "qr-code.png";
+                    a.click();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

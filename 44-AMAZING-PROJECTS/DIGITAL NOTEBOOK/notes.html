@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Digital Notebook App v4</title>
+  
+  <style>
+    :root {
+      --bg: #1e1e2f;
+      --text: #ffffff;
+      --note-bg: #333;
+      --note-border: #00b894;
+      --btn-bg: #00b894;
+      --btn-hover: #ff0000;
+      --card-glow: rgba(0, 255, 200, 0.4);
+    }
+
+    body.light {
+      --bg: #f9f9f9;
+      --text: #111;
+      --note-bg: #ffffff;
+      --note-border: #00b894;
+      --btn-bg: #07e2ff;
+      --btn-hover: #ff1111;
+      --card-glow: rgba(0, 184, 148, 0.2);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      transition: all 0.4s ease;
+      overflow-x: hidden;
+    }
+
+    .container {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .sidebar {
+      flex: 1;
+      min-width: 250px;
+      max-width: 300px;
+      background: var(--note-bg);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 0 15px var(--card-glow);
+      height: fit-content;
+    }
+
+    .sidebar h2 {
+      margin-bottom: 15px;
+      font-size: 1.4rem;
+    }
+
+    .notes-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .note-card {
+      background: var(--bg);
+      border-left: 4px solid var(--note-border);
+      padding: 10px 15px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .note-card:hover {
+      background: var(--note-border);
+      color: #fff;
+    }
+
+    .note-card span {
+      flex: 1;
+    }
+
+    .delete-btn {
+      background: transparent;
+      color: red;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    .main {
+      flex: 2;
+      min-width: 300px;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .top-bar h1 {
+      font-size: 1.8rem;
+    }
+
+    .toggle-btn {
+      background-color: var(--btn-bg);
+      border: none;
+      color: white;
+      padding: 8px 14px;
+      font-size: 0.9rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .toggle-btn:hover {
+      background-color: var(--btn-hover);
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      font-size: 1rem;
+    }
+
+    textarea {
+      resize: none;
+      height: 120px;
+    }
+
+    .save-btn {
+      width: 100%;
+      background: var(--btn-bg);
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .save-btn:hover {
+      background: var(--btn-hover);
+    }
+
+    .note-display {
+      margin-top: 30px;
+      padding: 20px;
+      border-radius: 10px;
+      background: var(--note-bg);
+      box-shadow: 0 0 12px var(--card-glow);
+    }
+
+    .note-display h3 {
+      margin-bottom: 5px;
+    }
+
+    .note-display small {
+      font-size: 0.8rem;
+      color: #bbb;
+    }
+
+    .note-display p {
+      margin-top: 10px;
+      white-space: pre-wrap;
+    }
+
+    .animated-bg {
+      position: fixed;
+      top: -50px;
+      left: -50px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, #00b89460, transparent 70%);
+      animation: float 8s ease-in-out infinite;
+      z-index: -1;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(50px, 50px); }
+    }
+
+    @media(max-width: 768px) {
+      .container { flex-direction: column; }
+    }
+
+    
+  </style>
+</head>
+<body>
+  <div class="animated-bg"></div>
+  <div class="top-bar">
+    <h1>📝Digital Notebook</h1>
+    <button class="toggle-btn" onclick="toggleTheme()">🌗 Toggle Mode</button>
+  </div>
+  <div class="container">
+    <div class="sidebar">
+      <h2>📂 Saved Notes</h2>
+      <div class="notes-list" id="notesList"></div>
+    </div>
+    <div class="main">
+      <input type="text" id="noteTitle" placeholder="Note Title..." />
+      <textarea id="noteContent" placeholder="Write your note here..."></textarea>
+      <button class="save-btn" onclick="saveNote()">💾 Save Note</button>
+      <div class="note-display" id="noteDisplay" style="display: none;">
+        <h3 id="displayTitle"></h3>
+        <small id="displayTime"></small>
+        <p id="displayContent"></p>
+      </div>
+    </div>
+  </div>
+  <script>
+    let notes = JSON.parse(localStorage.getItem("bossNotes") || "[]");
+
+    function toggleTheme() {
+      document.body.classList.toggle("light");
+      localStorage.setItem("theme", document.body.classList.contains("light") ? "light" : "dark");
+    }
+
+    window.onload = () => {
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "light") document.body.classList.add("light");
+      renderNotes();
+    };
+
+    function saveNote() {
+      const title = document.getElementById("noteTitle").value.trim();
+      const content = document.getElementById("noteContent").value.trim();
+      if (!title || !content) return alert("Please enter title and content!");
+      const note = { title, content, time: new Date().toLocaleString() };
+      notes.push(note);
+      localStorage.setItem("bossNotes", JSON.stringify(notes));
+      renderNotes();
+      clearInputs();
+    }
+
+    function renderNotes() {
+      const list = document.getElementById("notesList");
+      list.innerHTML = "";
+      notes.forEach((note, index) => {
+        const div = document.createElement("div");
+        div.className = "note-card";
+
+        const span = document.createElement("span");
+        span.innerText = note.title;
+        span.onclick = () => showNote(index);
+
+        const del = document.createElement("button");
+        del.innerText = "🗑";
+        del.className = "delete-btn";
+        del.onclick = (e) => {
+          e.stopPropagation();
+          if (confirm("Delete this note?")) deleteNote(index);
+        };
+
+        div.appendChild(span);
+        div.appendChild(del);
+        list.appendChild(div);
+      });
+    }
+
+    function showNote(index) {
+      const note = notes[index];
+      document.getElementById("displayTitle").innerText = note.title;
+      document.getElementById("displayContent").innerText = note.content;
+      document.getElementById("displayTime").innerText = note.time;
+      document.getElementById("noteDisplay").style.display = "block";
+    }
+
+    function deleteNote(index) {
+      notes.splice(index, 1);
+      localStorage.setItem("bossNotes", JSON.stringify(notes));
+      renderNotes();
+      document.getElementById("noteDisplay").style.display = "none";
+    }
+
+    function clearInputs() {
+      document.getElementById("noteTitle").value = "";
+      document.getElementById("noteContent").value = "";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hand Particle 1 | webkaizen</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <!-- MediaPipe Hands -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="fixed inset-0 flex flex-col items-center justify-center text-white transition-opacity duration-1000">
+        <div class="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-purple-500 mb-4"></div>
+        <h2 class="text-2xl font-light tracking-widest">INITIALIZING VISION</h2>
+        <p class="text-gray-500 mt-2 text-sm">Please allow camera access</p>
+    </div>
+
+    <!-- Hidden Video for Computer Vision -->
+    <video id="video-input"></video>
+
+    <!-- 3D Canvas -->
+    <div id="canvas-container"></div>
+
+    <!-- UI Overlay -->
+    <div class="fixed top-0 left-0 w-full h-full pointer-events-none z-20 p-4 flex flex-col justify-between">
+        
+        <!-- Header -->
+        <div class="pointer-events-auto flex justify-between items-start">
+            <div class="glass-panel rounded-xl p-4 flex items-center gap-3">
+                <div class="w-2 h-2 rounded-full bg-red-500 animate-pulse" id="status-dot"></div>
+                <div>
+                    <h1 class="text-white text-sm font-bold tracking-wider">KINETIC PARTICLES</h1>
+                    <p class="text-xs text-gray-400" id="status-text">Waiting for hands...</p>
+                </div>
+            </div>
+
+            <!-- Color Picker -->
+            <div class="glass-panel rounded-xl p-2 flex gap-2">
+                <button onclick="app.setColor(0xff3366)" class="w-6 h-6 rounded-full bg-[#ff3366] hover:scale-110 transition-transform border border-white/20"></button>
+                <button onclick="app.setColor(0x33ccff)" class="w-6 h-6 rounded-full bg-[#33ccff] hover:scale-110 transition-transform border border-white/20"></button>
+                <button onclick="app.setColor(0xffcc33)" class="w-6 h-6 rounded-full bg-[#ffcc33] hover:scale-110 transition-transform border border-white/20"></button>
+                <button onclick="app.setColor(0xcc33ff)" class="w-6 h-6 rounded-full bg-[#cc33ff] hover:scale-110 transition-transform border border-white/20"></button>
+                <button onclick="app.setColor(0xffffff)" class="w-6 h-6 rounded-full bg-white hover:scale-110 transition-transform border border-white/20"></button>
+            </div>
+        </div>
+
+        <!-- Camera Preview (Small) -->
+        <div class="pointer-events-auto absolute bottom-24 right-4 md:bottom-4 md:right-4 w-32 h-24 glass-panel rounded-lg overflow-hidden border border-gray-700">
+            <canvas id="camera-feed" class="w-full h-full object-cover transform scale-x-[-1]"></canvas>
+            <div class="absolute bottom-1 left-1 text-[10px] text-white bg-black/50 px-1 rounded">DEBUG VIEW</div>
+        </div>
+
+        <!-- Template Selector (Bottom Center) -->
+        <div class="pointer-events-auto self-center glass-panel rounded-2xl p-2 flex gap-2 md:gap-4 mb-4 overflow-x-auto max-w-full">
+            <button onclick="app.setTemplate('hearts')" class="btn-option active group flex flex-col items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-xl border border-transparent">
+                <i data-lucide="heart" class="text-white mb-1 group-hover:scale-110 transition-transform"></i>
+                <span class="text-[10px] text-gray-300 uppercase tracking-wide">Heart</span>
+            </button>
+            <button onclick="app.setTemplate('saturn')" class="btn-option group flex flex-col items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-xl border border-transparent">
+                <i data-lucide="orbit" class="text-white mb-1 group-hover:scale-110 transition-transform"></i>
+                <span class="text-[10px] text-gray-300 uppercase tracking-wide">Saturn</span>
+            </button>
+            <button onclick="app.setTemplate('flowers')" class="btn-option group flex flex-col items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-xl border border-transparent">
+                <i data-lucide="flower-2" class="text-white mb-1 group-hover:scale-110 transition-transform"></i>
+                <span class="text-[10px] text-gray-300 uppercase tracking-wide">Flower</span>
+            </button>
+            <button onclick="app.setTemplate('fireworks')" class="btn-option group flex flex-col items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-xl border border-transparent">
+                <i data-lucide="sparkles" class="text-white mb-1 group-hover:scale-110 transition-transform"></i>
+                <span class="text-[10px] text-gray-300 uppercase tracking-wide">Chaos</span>
+            </button>
+        </div>
+    </div>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+        :root {
+            --bg-color: #000000;
+            --glass: rgba(10, 10, 10, 0.8);
+            --border: rgba(255, 255, 255, 0.15);
+            --accent: #ff8800;
+            --text: #ffffff;
+        }
+
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: var(--bg-color);
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            color: var(--text);
+            user-select: none;
+        }
+
+        #canvas-container {
+            position: fixed;
+            inset: 0;
+            z-index: 1;
+        }
+
+        /* UI Layer */
+        #ui-layer {
+            position: fixed;
+            inset: 0;
+            z-index: 10;
+            pointer-events: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .hud-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .status-pill {
+            background: rgba(20, 20, 20, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #555;
+            border-radius: 50%;
+            box-shadow: 0 0 5px #555;
+            transition: 0.3s;
+        }
+
+        .status-dot.active {
+            background: #00ffaa;
+            box-shadow: 0 0 10px #00ffaa;
+        }
+
+        #webcam-pip {
+            width: 120px;
+            height: 90px;
+            border-radius: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            object-fit: cover;
+            transform: scaleX(-1);
+            opacity: 0.6;
+            pointer-events: auto;
+            transition: 0.3s;
+        }
+
+        #webcam-pip:hover {
+            opacity: 1;
+            border-color: var(--accent);
+        }
+
+        .hud-bottom {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            pointer-events: none;
+        }
+
+        .panel {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 20px;
+            width: 100%;
+            max-width: 450px;
+            pointer-events: auto;
+        }
+
+        .panel h2 {
+            margin: 0 0 15px 0;
+            font-size: 1rem;
+            text-transform: uppercase;
+            color: #aaa;
+            letter-spacing: 2px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 5px;
+        }
+
+        /* Controls */
+        .control-row {
+            margin-bottom: 15px;
+        }
+
+        .control-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            margin-bottom: 5px;
+            color: #ccc;
+        }
+
+        /* Range Slider */
+        input[type="range"] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 4px;
+            background: #333;
+            border-radius: 2px;
+            outline: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 16px;
+            height: 16px;
+            background: #fff;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Color Grid */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .theme-btn {
+            height: 40px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .theme-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .theme-btn.active {
+            border: 2px solid white;
+            box-shadow: 0 0 15px white;
+        }
+
+        /* Themes Gradients */
+        .t-interstellar {
+            background: linear-gradient(135deg, #ff8800, #0088ff);
+        }
+
+        .t-cyber {
+            background: linear-gradient(135deg, #ff00cc, #00ffff);
+        }
+
+        .t-toxic {
+            background: linear-gradient(135deg, #ccff00, #00ff00);
+        }
+
+        .t-blood {
+            background: linear-gradient(135deg, #ff0000, #550000);
+        }
+
+        /* Loader */
+        #loader {
+            position: fixed;
+            inset: 0;
+            background: #000;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 1s infinite linear;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }

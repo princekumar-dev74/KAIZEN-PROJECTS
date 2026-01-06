@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>DITTO | webkaizen</title>
+  <link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+  <!-- partial:index.partial.html -->
+  <svg class="ditto" viewBox="0 0 400 400">
+    <defs>
+      <path class="ditto__path" id="ditto__path"></path>
+      <clipPath id="ditto__clip">
+        <use xlink:href="#ditto__path"></use>
+      </clipPath>
+    </defs>
+    <g class="ditto__real">
+      <g class="ditto__body">
+        <use xlink:href="#ditto__path"></use>
+      </g>
+      <g class="ditto__clone" clip-path="url(#ditto__clip)">
+        <use xlink:href="#ditto__path" transform="translate(0, -20)"></use>
+      </g>
+      <g class="ditto__stroke">
+        <use xlink:href="#ditto__path"></use>
+      </g>
+      <g class="ditto__face">
+        <g class="ditto__eyes">
+          <circle class="ditto__eye" cx="-35" cy="-65" r="5" fill="#000" stroke="none"></circle>
+          <circle class="ditto__eye" cx="35" cy="-60" r="5" fill="#000" stroke="none"></circle>
+        </g>
+        <path class="ditto__mouth" d="M -40 -35 q -20 -0 80 0" stroke-width="4" stroke="#000" fill="none"
+          stroke-linecap="round"></path>
+      </g>
+    </g>
+    <g class="ditto__outline">
+      <use xlink:href="#ditto__path"></use>
+    </g>
+  </svg>
+  <div class="pokeball__wrapper"><span class="pokeball__beam"></span>
+    <button class="pokeball" title="Change Ditto"><span class="pokeball__face"></span></button>
+  </div>
+  <!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js'></script>
+  <script src="./script.js"></script>
+
+</body>
+
+</html>

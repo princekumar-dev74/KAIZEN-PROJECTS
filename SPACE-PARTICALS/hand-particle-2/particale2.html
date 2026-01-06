@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hand Particle 2 | webkaizen</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.158.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.158.0/examples/jsm/",
+          "@mediapipe/tasks-vision": "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3/+esm"
+        }
+      }
+    </script>
+</head>
+
+<body>
+
+    <div id="loader">
+        <div class="spinner"></div>
+        <p style="margin-top:20px; color:#666;">LOADING SINGULARITY...</p>
+    </div>
+
+    <div id="canvas-container"></div>
+
+    <div id="ui-layer">
+        <div class="hud-top">
+            <div class="status-pill">
+                <div class="status-dot" id="cam-dot"></div>
+                <span id="status-text">Booting...</span>
+            </div>
+            <video id="webcam-pip" autoplay playsinline muted></video>
+        </div>
+
+        <div class="hud-bottom">
+            <div class="panel">
+                <h2>Event Horizon Settings</h2>
+
+                <!-- Brightness Slider -->
+                <div class="control-row">
+                    <div class="control-label">
+                        <span>Accretion Brightness</span>
+                        <span id="val-bright">80%</span>
+                    </div>
+                    <input type="range" id="sl-bright" min="0" max="3" step="0.1" value="0.8">
+                </div>
+
+                <!-- Color Themes -->
+                <div class="control-row">
+                    <div class="control-label"><span>Energy Spectrum</span></div>
+                    <div class="color-grid">
+                        <div class="theme-btn t-interstellar active" data-c1="#ff5500" data-c2="#0088ff"></div>
+                        <div class="theme-btn t-cyber" data-c1="#ff00cc" data-c2="#00ffff"></div>
+                        <div class="theme-btn t-toxic" data-c1="#ccff00" data-c2="#006600"></div>
+                        <div class="theme-btn t-blood" data-c1="#ff0000" data-c2="#330000"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script type="module" src="script.js"></script>
+</body>
+
+</html>

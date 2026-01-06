@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #eyes {
+  --size: clamp(64px, 30vi, 256px);
+  block-size: var(--size);
+  inline-size: var(--size);
+}
+
+body {
+  background: rgb(0, 0, 0);
+  block-size: 100vb;
+  display: grid;
+  grid-template-rows: 2fr 1fr;
+  place-items: center;
+  text-align: center;
+}
+
+a {
+  font-family: sans-serif;
+  font-size: 2rem;
+  color: #000000;
+}
+    </style>
+</head>
+<body>
+    <svg id="eyes" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="googly eyes emoji that track the mouse cursor">
+  <defs>
+    <linearGradient id="a" x1="0" x2="0" y1="46.676" y2="82.083" gradientUnits="userSpaceOnUse">
+      <stop offset="0" style="stop-color:#4b4b4b"/>
+      <stop offset="1" style="stop-color:#ff0000"/>
+    </linearGradient>
+    <g id="eye-shape">
+      <path style="fill:#ffffff" d="M34.16 106.51C18.73 106.51 6.19 87.44 6.19 64s12.55-42.51 27.97-42.51S62.13 40.56 62.13 64s-12.55 42.51-27.97 42.51"/>
+      <path style="fill:#89beaa" d="M34.16 23.49c6.63 0 12.98 4 17.87 11.27 5.22 7.75 8.1 18.14 8.1 29.24s-2.88 21.49-8.1 29.24c-4.89 7.27-11.24 11.27-17.87 11.27s-12.98-4-17.87-11.27C11.06 85.49 8.19 75.1 8.19 64s2.88-21.49 8.1-29.24c4.89-7.27 11.23-11.27 17.87-11.27m0-4C17.61 19.49 4.19 39.42 4.19 64s13.42 44.51 29.97 44.51S64.13 88.58 64.13 64 50.71 19.49 34.16 19.49"/>
+    </g>
+    <path id="pupil-shape" style="fill:url(#a)" d="M25.63 59.84c-2.7-2.54-2.1-7.58 1.36-11.26.18-.19.36-.37.55-.54-1.54-.87-3.23-1.36-5.01-1.36-7.19 0-13.02 7.93-13.02 17.7s5.83 17.7 13.02 17.7 13.02-7.93 13.02-17.7c0-1.75-.19-3.45-.54-5.05-3.24 2.33-7.11 2.64-9.38.51"/>
+  </defs>
+  <use href="#eye-shape" id="eye-left"/>
+  <use href="#pupil-shape" id="pupil-left"/>
+  <g transform="translate(59.68 0)">
+    <use href="#eye-shape" id="eye-right" />
+    <use href="#pupil-shape" id="pupil-right"/>
+  </g>
+</svg>
+<script src="script.js"></script>
+</body>
+</html>
