@@ -16,13 +16,13 @@
     <!--project-1 -->
     <tr>
     <td valign="top">
-        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/KAIZEN-PROJECTS/ANIME/3d-card-hover">
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/ANIME/3d-card-hover/">
             <p align="center">3d-card-hover</p>
             <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/Anime/01.png"/>
         </a>
     </td>
     <td valign="top">
-        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/ANIME/anime-cards">
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/ANIME/anime-cards/">
             <p align="center">anime-cards</p>
             <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/Anime/02.png"/>
         </a>
