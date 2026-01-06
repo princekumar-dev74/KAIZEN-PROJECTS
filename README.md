@@ -83,11 +83,7 @@
             <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/Anime/10.png"/>
         </a>
     </td>
-
-<br>
-<br>
-
-
+</table>
 
 # CARS Project's
 
@@ -148,6 +144,7 @@
             <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/Cars/08.png"/>
         </a>
     </td>
+</table>
 
 
 <br>
