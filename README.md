@@ -150,7 +150,7 @@
 <br>
 <br>
 
-# Cursor ProjectURSOR
+# Cursor Project's
 <table align="center">
     <!--project-1 -->
     <tr>
