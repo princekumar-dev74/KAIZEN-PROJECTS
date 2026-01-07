@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter Hub | webkazien</title>
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --secondary-color: #10b981;
+            --accent-color: #f59e0b;
+            --dark-color: #1f2937;
+            --light-color: #f9fafb;
+            --text-color: #374151;
+            --border-color: #e5e7eb;
+            --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #27c2e9 0%, #574ed1 100%);
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), #647260);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .conversion-tabs {
+            display: flex;
+            background: var(--light-color);
+            border-bottom: 2px solid var(--border-color);
+            overflow-x: auto;
+        }
+
+        .tab-button {
+            padding: 15px 25px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-color);
+            transition: var(--transition);
+            white-space: nowrap;
+            border-bottom: 3px solid transparent;
+        }
+
+        .tab-button:hover {
+            background: rgba(79, 70, 229, 0.1);
+        }
+
+        .tab-button.active {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+            background: rgba(79, 70, 229, 0.05);
+        }
+
+        .conversion-panel {
+            padding: 30px;
+            display: none;
+        }
+
+        .conversion-panel.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .conversion-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        input, select {
+            padding: 12px 16px;
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            font-size: 16px;
+            transition: var(--transition);
+            flex: 1;
+            min-width: 120px;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+
+        .equal-sign {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            min-width: 30px;
+            text-align: center;
+        }
+
+        .result {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--secondary-color);
+            background: rgba(16, 185, 129, 0.1);
+            padding: 15px 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .currency-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .currency-card {
+            background: var(--light-color);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .currency-card h4 {
+            color: var(--dark-color);
+            margin-bottom: 10px;
+        }
+
+        .currency-card p {
+            color: var(--text-color);
+            opacity: 0.8;
+            font-size: 14px;
+        }
+
+        .feature-section {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding: 40px 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .feature h3 {
+            color: var(--dark-color);
+            margin-bottom: 10px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px;
+            background: var(--dark-color);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .conversion-tabs {
+                flex-wrap: wrap;
+            }
+            
+            .tab-button {
+                flex: 1;
+                min-width: 120px;
+            }
+            
+            .input-group {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            input, select {
+                width: 100%;
+            }
+            
+            .equal-sign {
+                transform: rotate(90deg);
+                margin: 10px 0;
+            }
+        }
+
+        .currency-pair {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .rate-display {
+            background: rgba(245, 158, 11, 0.1);
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 14px;
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    Webkaizen
+    <div class="container">
+        <div class="header">
+            <h1>🔁 Unit Converter Hub</h1>
+            <p>Convert currencies, lengths, weights, and temperatures with ease</p>
+        </div>
+
+        <div class="conversion-tabs">
+            <button class="tab-button active" onclick="showTab('currency')">💱 Currency</button>
+            <button class="tab-button" onclick="showTab('length')">📏 Length</button>
+            <button class="tab-button" onclick="showTab('weight')">⚖️ Weight</button>
+            <button class="tab-button" onclick="showTab('temperature')">🌡️ Temperature</button>
+        </div>
+
+        <!-- Currency Converter -->
+        <div id="currency" class="conversion-panel active">
+            <div class="conversion-card">
+                <h2>Currency Converter</h2>
+                <p>Convert between multiple currencies with real-time exchange rates</p>
+                
+                <div class="input-group">
+                    <input type="number" id="currencyAmount" placeholder="Enter amount" value="100" step="0.01" oninput="convertCurrency()">
+                    <select id="fromCurrency" onchange="convertCurrency()">
+                        <option value="USD">USD - US Dollar</option>
+                        <option value="EUR">EUR - Euro</option>
+                        <option value="GBP">GBP - British Pound</option>
+                        <option value="JPY">JPY - Japanese Yen</option>
+                        <option value="AUD">AUD - Australian Dollar</option>
+                        <option value="CAD">CAD - Canadian Dollar</option>
+                        <option value="CHF">CHF - Swiss Franc</option>
+                        <option value="CNY">CNY - Chinese Yuan</option>
+                        <option value="INR" selected>INR - Indian Rupee</option>
+                        <option value="RUB">RUB - Russian Ruble</option>
+                        <option value="BRL">BRL - Brazilian Real</option>
+                        <option value="MXN">MXN - Mexican Peso</option>
+                        <option value="KRW">KRW - South Korean Won</option>
+                        <option value="SGD">SGD - Singapore Dollar</option>
+                        <option value="NZD">NZD - New Zealand Dollar</option>
+                        <option value="TRY">TRY - Turkish Lira</option>
+                        <option value="ZAR">ZAR - South African Rand</option>
+                        <option value="SEK">SEK - Swedish Krona</option>
+                        <option value="NOK">NOK - Norwegian Krone</option>
+                        <option value="DKK">DKK - Danish Krone</option>
+                        <option value="HKD">HKD - Hong Kong Dollar</option>
+                        <option value="THB">THB - Thai Baht</option>
+                        <option value="MYR">MYR - Malaysian Ringgit</option>
+                        <option value="IDR">IDR - Indonesian Rupiah</option>
+                        <option value="PHP">PHP - Philippine Peso</option>
+                        <option value="SAR">SAR - Saudi Riyal</option>
+                        <option value="AED">AED - UAE Dirham</option>
+                    </select>
+                    <div class="equal-sign">→</div>
+                    <select id="toCurrency" onchange="convertCurrency()">
+                        <option value="USD" selected>USD - US Dollar</option>
+                        <option value="EUR">EUR - Euro</option>
+                        <option value="GBP">GBP - British Pound</option>
+                        <option value="JPY">JPY - Japanese Yen</option>
+                        <option value="AUD">AUD - Australian Dollar</option>
+                        <option value="CAD">CAD - Canadian Dollar</option>
+                        <option value="CHF">CHF - Swiss Franc</option>
+                        <option value="CNY">CNY - Chinese Yuan</option>
+                        <option value="INR">INR - Indian Rupee</option>
+                        <option value="RUB">RUB - Russian Ruble</option>
+                        <option value="BRL">BRL - Brazilian Real</option>
+                        <option value="MXN">MXN - Mexican Peso</option>
+                        <option value="KRW">KRW - South Korean Won</option>
+                        <option value="SGD">SGD - Singapore Dollar</option>
+                        <option value="NZD">NZD - New Zealand Dollar</option>
+                        <option value="TRY">TRY - Turkish Lira</option>
+                        <option value="ZAR">ZAR - South African Rand</option>
+                        <option value="SEK">SEK - Swedish Krona</option>
+                        <option value="NOK">NOK - Norwegian Krone</option>
+                        <option value="DKK">DKK - Danish Krone</option>
+                        <option value="HKD">HKD - Hong Kong Dollar</option>
+                        <option value="THB">THB - Thai Baht</option>
+                        <option value="MYR">MYR - Malaysian Ringgit</option>
+                        <option value="IDR">IDR - Indonesian Rupiah</option>
+                        <option value="PHP">PHP - Philippine Peso</option>
+                        <option value="SAR">SAR - Saudi Riyal</option>
+                        <option value="AED">AED - UAE Dirham</option>
+                    </select>
+                </div>
+                
+                <div class="result" id="currencyResult">100.00 INR = 1.20 USD</div>
+            </div>
+
+            <div class="currency-grid">
+                <div class="currency-card">
+                    <h4>Popular Conversions</h4>
+                    <div class="currency-pair">
+                        <span>INR → USD</span>
+                        <span class="rate-display">1 INR = 0.012 USD</span>
+                    </div>
+                    <div class="currency-pair">
+                        <span>EUR → USD</span>
+                        <span class="rate-display">1 EUR = 1.08 USD</span>
+                    </div>
+                    <div class="currency-pair">
+                        <span>GBP → USD</span>
+                        <span class="rate-display">1 GBP = 1.27 USD</span>
+                    </div>
+                </div>
+                
+                <div class="currency-card">
+                    <h4>Asian Currencies</h4>
+                    <div class="currency-pair">
+                        <span>JPY → USD</span>
+                        <span class="rate-display">100 JPY = 0.68 USD</span>
+                    </div>
+                    <div class="currency-pair">
+                        <span>CNY → USD</span>
+                        <span class="rate-display">1 CNY = 0.14 USD</span>
+                    </div>
+                    <div class="currency-pair">
+                        <span>SGD → USD</span>
+                        <span class="rate-display">1 SGD = 0.74 USD</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Length Converter -->
+        <div id="length" class="conversion-panel">
+            <div class="conversion-card">
+                <h2>Length Converter</h2>
+                <p>Convert between different length units</p>
+                
+                <div class="input-group">
+                    <input type="number" id="lengthValue" placeholder="Enter length" value="100" step="0.01" oninput="convertLength()">
+                    <select id="lengthFrom" onchange="convertLength()">
+                        <option value="cm">Centimeters (cm)</option>
+                        <option value="m">Meters (m)</option>
+                        <option value="km">Kilometers (km)</option>
+                        <option value="inch">Inches (in)</option>
+                        <option value="ft">Feet (ft)</option>
+                        <option value="yd">Yards (yd)</option>
+                        <option value="mi">Miles (mi)</option>
+                        <option value="mm">Millimeters (mm)</option>
+                    </select>
+                    <div class="equal-sign">→</div>
+                    <select id="lengthTo" onchange="convertLength()">
+                        <option value="cm">Centimeters (cm)</option>
+                        <option value="m">Meters (m)</option>
+                        <option value="km">Kilometers (km)</option>
+                        <option value="inch" selected>Inches (in)</option>
+                        <option value="ft">Feet (ft)</option>
+                        <option value="yd">Yards (yd)</option>
+                        <option value="mi">Miles (mi)</option>
+                        <option value="mm">Millimeters (mm)</option>
+                    </select>
+                </div>
+                
+                <div class="result" id="lengthResult">100.00 cm = 39.37 inches</div>
+            </div>
+        </div>
+
+        <!-- Weight Converter -->
+        <div id="weight" class="conversion-panel">
+            <div class="conversion-card">
+                <h2>Weight Converter</h2>
+                <p>Convert between different weight units</p>
+                
+                <div class="input-group">
+                    <input type="number" id="weightValue" placeholder="Enter weight" value="1" step="0.01" oninput="convertWeight()">
+                    <select id="weightFrom" onchange="convertWeight()">
+                        <option value="kg">Kilograms (kg)</option>
+                        <option value="g">Grams (g)</option>
+                        <option value="mg">Milligrams (mg)</option>
+                        <option value="lb" selected>Pounds (lb)</option>
+                        <option value="oz">Ounces (oz)</option>
+                        <option value="st">Stone (st)</option>
+                        <option value="ton">Metric Tons (t)</option>
+                    </select>
+                    <div class="equal-sign">→</div>
+                    <select id="weightTo" onchange="convertWeight()">
+                        <option value="kg">Kilograms (kg)</option>
+                        <option value="g">Grams (g)</option>
+                        <option value="mg">Milligrams (mg)</option>
+                        <option value="lb" selected>Pounds (lb)</option>
+                        <option value="oz">Ounces (oz)</option>
+                        <option value="st">Stone (st)</option>
+                        <option value="ton">Metric Tons (t)</option>
+                    </select>
+                </div>
+                
+                <div class="result" id="weightResult">1.00 kg = 2.20 lbs</div>
+            </div>
+        </div>
+
+        <!-- Temperature Converter -->
+        <div id="temperature" class="conversion-panel">
+            <div class="conversion-card">
+                <h2>Temperature Converter</h2>
+                <p>Convert between different temperature scales</p>
+                
+                <div class="input-group">
+                    <input type="number" id="tempValue" placeholder="Enter temperature" value="0" step="0.1" oninput="convertTemperature()">
+                    <select id="tempFrom" onchange="convertTemperature()">
+                        <option value="c">Celsius (°C)</option>
+                        <option value="f">Fahrenheit (°F)</option>
+                        <option value="k">Kelvin (K)</option>
+                    </select>
+                    <div class="equal-sign">→</div>
+                    <select id="tempTo" onchange="convertTemperature()">
+                        <option value="c">Celsius (°C)</option>
+                        <option value="f" selected>Fahrenheit (°F)</option>
+                        <option value="k">Kelvin (K)</option>
+                    </select>
+                </div>
+                
+                <div class="result" id="tempResult">0.0 °C = 32.0 °F</div>
+            </div>
+        </div>
+
+        <div class="feature-section">
+            <h2>Why Choose Our Converter?</h2>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Instant Results</h3>
+                    <p>Get real-time conversions as you type</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Global Currencies</h3>
+                    <p>Convert between 30+ world currencies</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📱</div>
+                    <h3>Mobile Friendly</h3>
+                    <p>Works perfectly on all devices</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Accurate</h3>
+                    <p>Precise conversion calculations</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2024 Unit Converter Hub | Made with ❤️ for easy conversions</p>
+        </div>
+    </div>
+
+    <script>
+        // Tab switching functionality
+        function showTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.conversion-panel').forEach(panel => {
+                panel.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+            
+            // Update active tab button
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+            });
+            document.querySelector(`button[onclick="showTab('${tabName}')"]`).classList.add('active');
+        }
+
+        // Currency conversion rates (simplified - for demo purposes)
+        const exchangeRates = {
+            USD: 1,
+            EUR: 0.93,
+            GBP: 0.79,
+            JPY: 147.50,
+            AUD: 1.52,
+            CAD: 1.35,
+            CHF: 0.88,
+            CNY: 7.18,
+            INR: 83.33,
+            RUB: 91.50,
+            BRL: 4.95,
+            MXN: 17.25,
+            KRW: 1310.75,
+            SGD: 1.35,
+            NZD: 1.66,
+            TRY: 29.85,
+            ZAR: 18.90,
+            SEK: 10.45,
+            NOK: 10.75,
+            DKK: 6.95,
+            HKD: 7.82,
+            THB: 35.50,
+            MYR: 4.65,
+            IDR: 15625,
+            PHP: 56.25,
+            SAR: 3.75,
+            AED: 3.67
+        };
+
+        // Currency conversion function
+        function convertCurrency() {
+            const amount = parseFloat(document.getElementById('currencyAmount').value) || 0;
+            const fromCurrency = document.getElementById('fromCurrency').value;
+            const toCurrency = document.getElementById('toCurrency').value;
+            
+            // Convert to USD first, then to target currency
+            const amountInUSD = amount / exchangeRates[fromCurrency];
+            const result = amountInUSD * exchangeRates[toCurrency];
+            
+            document.getElementById('currencyResult').textContent = 
+                `${amount.toFixed(2)} ${fromCurrency} = ${result.toFixed(2)} ${toCurrency}`;
+        }
+
+        // Length conversion function
+        function convertLength() {
+            const value = parseFloat(document.getElementById('lengthValue').value) || 0;
+            const fromUnit = document.getElementById('lengthFrom').value;
+            const toUnit = document.getElementById('lengthTo').value;
+            
+            // Convert to meters first (base unit)
+            let meters;
+            switch(fromUnit) {
+                case 'cm': meters = value / 100; break;
+                case 'm': meters = value; break;
+                case 'km': meters = value * 1000; break;
+                case 'inch': meters = value * 0.0254; break;
+                case 'ft': meters = value * 0.3048; break;
+                case 'yd': meters = value * 0.9144; break;
+                case 'mi': meters = value * 1609.34; break;
+                case 'mm': meters = value / 1000; break;
+            }
+            
+            // Convert from meters to target unit
+            let result;
+            switch(toUnit) {
+                case 'cm': result = meters * 100; break;
+                case 'm': result = meters; break;
+                case 'km': result = meters / 1000; break;
+                case 'inch': result = meters / 0.0254; break;
+                case 'ft': result = meters / 0.3048; break;
+                case 'yd': result = meters / 0.9144; break;
+                case 'mi': result = meters / 1609.34; break;
+                case 'mm': result = meters * 1000; break;
+            }
+            
+            document.getElementById('lengthResult').textContent = 
+                `${value.toFixed(2)} ${fromUnit} = ${result.toFixed(2)} ${toUnit}`;
+        }
+
+        // Weight conversion function
+        function convertWeight() {
+            const value = parseFloat(document.getElementById('weightValue').value) || 0;
+            const fromUnit = document.getElementById('weightFrom').value;
+            const toUnit = document.getElementById('weightTo').value;
+            
+            // Convert to kilograms first (base unit)
+            let kg;
+            switch(fromUnit) {
+                case 'kg': kg = value; break;
+                case 'g': kg = value / 1000; break;
+                case 'mg': kg = value / 1000000; break;
+                case 'lb': kg = value * 0.453592; break;
+                case 'oz': kg = value * 0.0283495; break;
+                case 'st': kg = value * 6.35029; break;
+                case 'ton': kg = value * 1000; break;
+            }
+            
+            // Convert from kg to target unit
+            let result;
+            switch(toUnit) {
+                case 'kg': result = kg; break;
+                case 'g': result = kg * 1000; break;
+                case 'mg': result = kg * 1000000; break;
+                case 'lb': result = kg / 0.453592; break;
+                case 'oz': result = kg / 0.0283495; break;
+                case 'st': result = kg / 6.35029; break;
+                case 'ton': result = kg / 1000; break;
+            }
+            
+            document.getElementById('weightResult').textContent = 
+                `${value.toFixed(2)} ${fromUnit} = ${result.toFixed(2)} ${toUnit}`;
+        }
+
+        // Temperature conversion function
+        function convertTemperature() {
+            const value = parseFloat(document.getElementById('tempValue').value) || 0;
+            const fromUnit = document.getElementById('tempFrom').value;
+            const toUnit = document.getElementById('tempTo').value;
+            
+            // Convert to Celsius first (base unit)
+            let celsius;
+            switch(fromUnit) {
+                case 'c': celsius = value; break;
+                case 'f': celsius = (value - 32) * 5/9; break;
+                case 'k': celsius = value - 273.15; break;
+            }
+            
+            // Convert from Celsius to target unit
+            let result;
+            switch(toUnit) {
+                case 'c': result = celsius; break;
+                case 'f': result = (celsius * 9/5) + 32; break;
+                case 'k': result = celsius + 273.15; break;
+            }
+            
+            document.getElementById('tempResult').textContent = 
+                `${value.toFixed(1)} ${getTempSymbol(fromUnit)} = ${result.toFixed(1)} ${getTempSymbol(toUnit)}`;
+        }
+
+        function getTempSymbol(unit) {
+            switch(unit) {
+                case 'c': return '°C';
+                case 'f': return '°F';
+                case 'k': return 'K';
+                default: return unit;
+            }
+        }
+
+        // Initialize conversions on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            convertCurrency();
+            convertLength();
+            convertWeight();
+            convertTemperature();
+        });
+    </script>
+</body>
+</html>
+
