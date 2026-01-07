@@ -480,8 +480,8 @@
 <!--project-1 -->
     <tr>
     <td valign="top">
-        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/BARCODE GENERATOR">
-            <p align="center">BARCODE GENERATOR</p>
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/BARCODE-GENERATOR">
+            <p align="center">BARCODE-GENERATOR</p>
             <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/AMAZING-PROJECTS/01.png"/>
         </a>
     </td>
@@ -507,7 +507,7 @@
         </a>
     </td>
     <td valign="top">
-        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/BULB ANIMATION">
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/BULB-ANIMATION">
             <p align="center">BULB ANIMATION</p>
             <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/AMAZING-PROJECTS/05.png"/>
         </a>
@@ -522,19 +522,19 @@
 <!--project-3 -->
     <tr>
     <td valign="top">
-        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/CHRISTMAS ANIMATION">
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/CHRISTMAS-ANIMATION">
             <p align="center">CHRISTMAS ANIMATION</p>
             <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/AMAZING-PROJECTS/07.png"/>
         </a>
     </td>
     <td valign="top">
-        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/CHRISTMAS MODAL">
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/CHRISTMAS-MODAL">
             <p align="center">CHRISTMAS MODAL</p>
             <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/AMAZING-PROJECTS/08.png"/>
         </a>
     </td>
     <td valign="top">
-        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/CHRISTMAS TREE">
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/CHRISTMAS-TREE">
             <p align="center">CHRISTMAS TREE</p>
             <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/AMAZING-PROJECTS/09.png"/>
         </a>
@@ -543,19 +543,19 @@
 <!--project-4 -->
     <tr>
     <td valign="top">
-        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/CLAW-MACHINE GAME">
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/CLAW-MACHINE-GAME">
             <p align="center">CLAW-MACHINE GAME</p>
             <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/AMAZING-PROJECTS/10.png"/>
         </a>
     </td>
     <td valign="top">
-        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/CREDIT CARD ANIMATION">
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/CREDIT-CARD-ANIMATION">
             <p align="center">CREDIT CARD ANIMATION</p>
             <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/AMAZING-PROJECTS/11.png"/>
         </a>
     </td>
     <td valign="top">
-        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/CURRENCY CONVERTER">
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/CURRENCY-CONVERTER">
             <p align="center">CURRENCY CONVERTER</p>
             <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/AMAZING-PROJECTS/12.png"/>
         </a>
@@ -570,13 +570,13 @@
         </a>
     </td>
     <td valign="top">
-        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/CUTE LAMP">
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/CUTE-LAMP">
             <p align="center">CUTE LAMP</p>
             <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/AMAZING-PROJECTS/14.png"/>
         </a>
     </td>
     <td valign="top">
-        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/DAY & NIGHT">
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/DAY-NIGHT">
             <p align="center">DAY & NIGHT</p>
             <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/AMAZING-PROJECTS/15.png"/>
         </a>
@@ -585,19 +585,19 @@
 <!--project-6 -->
     <tr>
     <td valign="top">
-        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/DIGITAL NOTEBOOK">
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/DIGITAL-NOTEBOOK">
             <p align="center">DIGITAL NOTEBOOK</p>
             <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/AMAZING-PROJECTS/16.png"/>
         </a>
     </td>
     <td valign="top">
-        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/FISH ANIMATION">
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/FISH-ANIMATION">
             <p align="center">FISH ANIMATION</p>
             <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/AMAZING-PROJECTS/17.png"/>
         </a>
     </td>
     <td valign="top">
-        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/FUTURE SCROLLING">
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/FUTURE-SCROLLING">
             <p align="center">FUTURE SCROLLING</p>
             <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/AMAZING-PROJECTS/18.png"/>
         </a>
@@ -612,7 +612,7 @@
         </a>
     </td>
     <td valign="top">
-        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/HEXAGONAL GRID">
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/HEXAGONAL-GRID">
             <p align="center">HEXAGONAL GRID</p>
             <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/AMAZING-PROJECTS/20.png"/>
         </a>
@@ -627,19 +627,19 @@
 <!--project-8 -->
     <tr>
     <td valign="top">
-        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/IMAGE TRANSITION EFFECT">
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/IMAGE TRANSITION-EFFECT">
             <p align="center">IMAGE TRANSITION EFFECT</p>
             <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/AMAZING-PROJECTS/22.png"/>
         </a>
     </td>
     <td valign="top">
-        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/MIRROR BUTTON">
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/MIRROR-BUTTON">
             <p align="center">MIRROR BUTTON</p>
             <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/AMAZING-PROJECTS/23.png"/>
         </a>
     </td>
     <td valign="top">
-        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/NEW YEAR 2026">
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/NEW-YEAR-2026">
             <p align="center">NEW YEAR 2026</p>
             <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/AMAZING-PROJECTS/24.png"/>
         </a>
@@ -648,19 +648,19 @@
 <!--project-9 -->
     <tr>
     <td valign="top">
-        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/ORDER BUTTON">
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/ORDER-BUTTON">
             <p align="center">ORDER BUTTON</p>
             <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/AMAZING-PROJECTS/25.png"/>
         </a>
     </td>
     <td valign="top">
-        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/OTP READER">
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/OTP-READER">
             <p align="center">OTP READER</p>
             <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/AMAZING-PROJECTS/26.png"/>
         </a>
     </td>
     <td valign="top">
-        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/Our Country Kitchen">
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/Our-Country-Kitchen">
             <p align="center">Our Country Kitchen</p>
             <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/AMAZING-PROJECTS/27.png"/>
         </a>
@@ -669,19 +669,19 @@
 <!--project-10 -->
     <tr>
     <td valign="top">
-        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/PASSWORD GENERATOR">
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/PASSWORD-GENERATOR">
             <p align="center">PASSWORD GENERATOR</p>
             <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/AMAZING-PROJECTS/28.png"/>
         </a>
     </td>
     <td valign="top">
-        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/PDF CONVERTER">
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/PDF-CONVERTER">
             <p align="center">PDF CONVERTER</p>
             <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/AMAZING-PROJECTS/29.png"/>
         </a>
     </td>
     <td valign="top">
-        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/PEPSI PRODUCT CARD">
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/PEPSI-PRODUCT-CARD">
             <p align="center">PEPSI PRODUCT CARD</p>
             <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/AMAZING-PROJECTS/30.png"/>
         </a>
@@ -690,19 +690,19 @@
 <!--project-11 -->
     <tr>
     <td valign="top">
-        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/QR CODE">
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/QR-CODE">
             <p align="center">QR CODE</p>
             <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/AMAZING-PROJECTS/31.png"/>
         </a>
     </td>
     <td valign="top">
-        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/ROLLAR EFFECT">
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/ROLLAR-EFFECT">
             <p align="center">ROLLAR EFFECT</p>
             <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/AMAZING-PROJECTS/32.png"/>
         </a>
     </td>
     <td valign="top">
-        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/RUBIKS CUBE">
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/RUBIKS-CUBE">
             <p align="center">RUBIKS CUBE</p>
             <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/AMAZING-PROJECTS/33.png"/>
         </a>
@@ -711,19 +711,19 @@
 <!--project-12 -->
     <tr>
     <td valign="top">
-        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/SCROLL ANIMATION">
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/SCROLL-ANIMATION">
             <p align="center">SCROLL ANIMATION</p>
             <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/AMAZING-PROJECTS/34.png"/>
         </a>
     </td>
     <td valign="top">
-        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/SCROLL OVERLAPPING EFFECT">
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/SCROLL-OVERLAPPING-EFFECT">
             <p align="center">SCROLL OVERLAPPING EFFECT</p>
             <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/AMAZING-PROJECTS/35.png"/>
         </a>
     </td>
     <td valign="top">
-        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/SMOOTH IMAGE SLIDER">
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/SMOOTH-IMAGE-SLIDER">
             <p align="center">SMOOTH IMAGE SLIDER</p>
             <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/AMAZING-PROJECTS/36.png"/>
         </a>
@@ -732,19 +732,19 @@
 <!--project-13 -->
     <tr>
     <td valign="top">
-        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/SNOW FOX">
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/SNOW-FOX">
             <p align="center">SNOW FOX</p>
             <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/AMAZING-PROJECTS/37.png"/>
         </a>
     </td>
     <td valign="top">
-        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/SQUID GAME">
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/SQUID-GAME">
             <p align="center">SQUID GAME</p>
             <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/AMAZING-PROJECTS/38.png"/>
         </a>
     </td>
     <td valign="top">
-        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/STRANGER THINGS INTRACTION">
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/STRANGER-THINGS-INTRACTION">
             <p align="center">STRANGER THINGS INTRACTION</p>
             <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/AMAZING-PROJECTS/39.png"/>
         </a>
@@ -759,13 +759,13 @@
         </a>
     </td>
     <td valign="top">
-        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/THE LOCAL CAFE">
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/THE-LOCAL-CAFE">
             <p align="center">THE LOCAL CAFE</p>
             <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/AMAZING-PROJECTS/41.png"/>
         </a>
     </td>
     <td valign="top">
-        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/VIDEO TRAILER POPUP">
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/VIDEO-TRAILER-POPUP">
             <p align="center">VIDEO TRAILER POPUP</p>
             <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/AMAZING-PROJECTS/42.png"/>
         </a>
@@ -774,7 +774,7 @@
 <!--project-15 -->
     <tr>
     <td valign="top">
-        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/WATER DESTORATION">
+        <a target="_blank" href="https://princekumar-dev74.github.io/KAIZEN-PROJECTS/44-AMAZING-PROJECTS/WATER-DESTORATION">
             <p align="center">WATER DESTORATION</p>
             <img src="https://cdn.jsdelivr.net/gh/princekumar-dev74/KAIZEN-PROJECTS/LOGOS/AMAZING-PROJECTS/43.png"/>
         </a>
